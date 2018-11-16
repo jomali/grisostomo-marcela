@@ -24,4 +24,14 @@
 *.vid
 
 # Ficheros de documentación:
+*.aux
+*.bbl
+*.blg
+*.doc
+*.dvi
+*.lof
+*.log
+*.lot
+*.out
 *.pdf
+*.toc
