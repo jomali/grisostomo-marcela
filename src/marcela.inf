@@ -86,30 +86,16 @@
 !!------------------------------------------------------------------------------
 
 Constant Story
-"La pequeña cerillera";
+"Historia de Grisóstomo y Marcela";
 
 Constant Headline
-"Una ficción interactiva de J. Francisco Martín Lisaso, (c) 2010-18^
-Basada en el cuento breve del escritor Hans Christian Andersen";
+"Una ficción interactiva de J. Francisco Martín Lisaso, (c) 2018";
 
-!! Constant Checking 1;
-!! Release 0; Serial "101209";
-!! Release 1; Serial "101210";
-!! Release 2; Serial "101213";
-!! Constant Checking 2;
-!! Release 0; Serial "130602";
-!! Constant Checking 3;
-!! Release 0; Serial "180514";
-!! Release 1; Serial "180515";
-!! Release 2; Serial "180616";
-
-Constant Checking 4;
-!! Release 0; Serial "181002";
-!! Release 1; Serial "181013";
-Release 2; Serial "181016";
+Constant Checking 1;
+Release 0; ! Serial "181116"; ! TODO
 
 !! Descomentar para compilar la versión Web/Móvil:
-!! Constant VERSION_WEB_MOBILE;
+Constant VERSION_WEB_MOBILE;
 
 !!------------------------------------------------------------------------------
 !!	Control de las extensiones utilizadas por la obra
@@ -142,7 +128,7 @@ Constant USE_SPANISH_LM;
 !!------------------------------------------------------------------------------
 
 !! Nombre del fichero de configuración:
-Constant CONFIG_FILE_NAME "cerillera.params";
+Constant CONFIG_FILE_NAME "marcela.params";
 
 !! Estilos de texto por defecto para las palabras destacadas:
 Constant DEFAULT_HIGHLIGHT_ST_1 TEXT_STYLE_UPRIGHT;
@@ -154,13 +140,7 @@ Constant DEFAULT_HYPERLINKS_STATUS_2 1;
 
 !! Referencias a los recursos multimedia en Máquina-Z:
 #Ifdef TARGET_ZCODE;
-Constant MUS_FINAL 0;
-Constant SFX_CAJA_CERILLAS 1;
-Constant SFX_CERILLA_1 2;
-Constant SFX_CERILLA_2 3;
-Constant SFX_CERILLA_3 4;
-Constant SFX_PASOS_NIEVE 5;
-Constant SFX_VIENTO 6;
+!! FIXME
 #Endif; ! TARGET_ZCODE;
 
 #Ifndef USE_EXTENDED_LIBRARY;
@@ -194,7 +174,7 @@ Constant WITHOUT_DIRECTIONS;	! Se omiten las dir. por defecto de la lib.
 
 #Ifdef TARGET_GLULX;
 #Ifdef USE_GWINDOWS;
-Constant GUICONFIG_MARGIN_COLOR $202530;
+Constant GUICONFIG_MARGIN_COLOR $F2E1C5; ! #F2E1C5
 Object	GUIConfig "(GUI Configuration)"
  with	!!----------------------------------------------------------------------
 		graphic_window_flag true,	! estado de las ventanas gráficas
@@ -283,17 +263,13 @@ Default THIRD_PERSON_FUTURE		= 9;
 !!------------------------------------------------------------------------------
 
 !! Color frontal para el estilo de texto encabezado:
-Constant HEADER_STYLE_FGC $FA5C5C; ! #Fa5C5C
+Constant HEADER_STYLE_FGC $CD9C4D; ! #CD9C4D
 !! Color de fondo del estilo de texto Usuario 1:
-Constant USR1_STYLE_BGC	$333946; ! #333946
+Constant USR1_STYLE_BGC	$E9CDA0; ! #E9CDA0
 !! Color frontal del estilo de texto Usuario 2:
 Constant USR2_STYLE_FGC $808080; ! #808080
 
-#Ifdef TARGET_ZCODE;
-Constant TEXT_STYLE_PARSER TEXT_STYLE_MONOSPACED;
-#Ifnot; ! TARGET_GLULX;
-Constant TEXT_STYLE_PARSER TEXT_STYLE_USER2;
-#Endif; ! TARGET_
+Constant TEXT_STYLE_PARSER TEXT_STYLE_STRESSED;
 Constant TEXT_STYLE_PARSER_PREFIX "[";
 Constant TEXT_STYLE_PARSER_SUFIX "]";
 
@@ -355,11 +331,11 @@ Include "SpanishLM.h";			! Mensajes de la librería
 #Endif; ! USE_SPANISH_LM;
 
 #Ifdef USE_EXTENDED_LIBRARY;
-Include ">cerillera_lib.inf";	! Personalizaciones de la librería
+Include ">marcela_lib.inf";		! Personalizaciones de la librería
 #Endif; ! USE_EXTENDED_LIBRARY;
 
-Include ">cerillera_langLM.inf"; ! Mensajes personalizados de la librería
-Include ">cerillera_langOM.inf"; ! Mensajes de los objetos
+Include ">marcela_langLM.inf";	! Mensajes personalizados de la librería
+Include ">marcela_langOM.inf";	! Mensajes de los objetos
 
 #Ifdef USE_GWINDOWS;
 Include "gwincls.h";			! GWindows: Window Class Framework
@@ -609,7 +585,7 @@ Include "gWindowsGUI.h";		! Interfaz gráfica adaptativa con GWindows
 #Endif; ! USE_GWINDOWS;
 
 #Ifdef TARGET_GLULX;
-Include ">cerillera.bli";		! Recursos multimedia de la aplicación
+Include ">marcela.bli";			! Recursos multimedia de la aplicación
 #Endif; ! TARGET_GLULX;
 
 Include "arrays.h";				! Operaciones con arrays
@@ -660,8 +636,6 @@ Include "vorple-screen-effects.h";
 	#Ifdef PARSING_PREPROCESSOR;
 	ParsingPreprocessor.run();
 	#Endif; ! PARSING_PREPROCESSOR;
-
-	Util.fade_out(SFX_PASOS_NIEVE, 0, 100);
 ];
 
 !!------------------------------------------------------------------------------
@@ -826,32 +800,21 @@ Include "vorple-screen-effects.h";
 	#Endif; ! USE_VORPLE;
 	Util.press_any_key();
 	Util.erase_window();
-	!! Cita de "Concierto para la acumulación". Cristina Peregrina (2010):
-	!! XXX - No se pueden realizar dos efectos de fade al mismo tiempo
-	Util.fade_in(SFX_VIENTO, 100, 1000);
-	new_line;
-	#Ifdef TARGET_ZCODE;
-	O__M(Alba, 2);
-	#Ifnot; ! TARGET_GLULX;
-	O__M(Alba, 3);
-	#Endif; ! TARGET_
-	Util.press_any_key();
-	Util.erase_window();
-	!! Texto inicial:
-	Util.fade_in(SFX_PASOS_NIEVE, 75, 0);
+
+	!! FIXME - efectos de sonido
+
 	new_line;
 	Util.horizontal_rule();
 	new_line;
-	O__M(Alba, 4);
-	new_line;
-	!! Narrador en presente y tercera persona
+
+	!! Narrador en pasado y tercera persona
 	Util.set_grammatical_inflection(THIRD_PERSON_PAST);
 	!! Establece el estilo del inventario:
 	inventory_style = ENGLISH_BIT + RECURSE_BIT + FULLINV_BIT;
 	!! Establece el PC (player character)
-	ChangePlayer(Alba);
+	ChangePlayer(Quijote);
 	!! Establece la localidad inicial del relato:
-	location = Esquina;
+	location = Campo;
 	!! Lookmode largo:
 	lookmode = 2;
 	!! Se evita la impresión inicial del banner
@@ -1211,6 +1174,6 @@ Verb	'conversa' 'platica'
 !!
 !!------------------------------------------------------------------------------
 
-Include ">cerillera_classes.inf";
-Include ">cerillera_objects.inf";
-Include ">cerillera_util.inf";
+Include ">marcela_classes.inf";
+Include ">marcela_objects.inf";
+Include ">marcela_util.inf";
