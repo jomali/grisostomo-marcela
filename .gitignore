@@ -3,15 +3,6 @@
 /dist
 /empaquetador
 /font
-
-# Ficheros multimedia:
-*.ico
-*.mp3
-*.mp4
-*.ogg
-*.png
-*.psd
-*.vid
 *.wav
 
 # Ejecutables Máquina-Z/Glulx/Windows:
@@ -22,3 +13,15 @@
 *.blb
 *.gblorb
 *.exe
+
+# Ficheros multimedia:
+*.ico
+*.mp3
+*.mp4
+*.ogg
+*.png
+*.psd
+*.vid
+
+# Ficheros de documentación:
+*.pdf
