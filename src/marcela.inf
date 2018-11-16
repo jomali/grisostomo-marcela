@@ -8,73 +8,46 @@
 
 !!==============================================================================
 !!
-!!	LA PEQUEÑA CERILLERA
+!!	HISTORIA DE GRISÓSTOMO Y MARCELA
 !!
 !!==============================================================================
 !!
-!!	Archivo:		cerillera.inf
+!!	Archivo:		marcela.inf
 !!	Autor(es):		J. Francisco Martín <jfm.lisaso@gmail.com>
 !!	Idioma:			ES (Español)
 !!	Sistema:		Inform-INFSP 6
-!!	Plataforma:		Máquina-Z/Glulx
-!!	Versión:		4.2
-!!	Fecha:			2018/10/16
+!!	Plataforma:		Glulx
+!!	Versión:		1.0
+!!	Fecha:			2018/11/16
 !!
 !!------------------------------------------------------------------------------
 !!
 !!	Este archivo forma parte de la ficción interactiva
-!!	LA PEQUEÑA CERILLERA.
+!!	HISTORIA DE GRISÓSTOMO Y MARCELA.
 !!
-!!	LA PEQUEÑA CERILLERA es software libre: usted puede redistribuirlo
-!!	y/o modificarlo bajo los términos de la Licencia Pública General
-!!	GNU publicada por la Fundación para el Software Libre, ya sea la
-!!	versión 3 de la Licencia, o (a su elección) cualquier versión
-!!	posterior.
+!!	HISTORIA DE GRISÓSTOMO Y MARCELA es software libre: usted puede
+!!	redistribuirlo y/o modificarlo bajo los términos de la Licencia
+!!	Pública General GNU publicada por la Fundación para el Software
+!!	Libre, ya sea la versión 3 de la Licencia, o (a su elección)
+!!	cualquier versión posterior.
 !!
-!!	LA PEQUEÑA CERILLERA se distribuye con la esperanza de que sea
-!!	útil, pero SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita
-!!	MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. Consulte los
-!!	detalles de la Licencia Pública General GNU para más información.
+!!	HISTORIA DE GRISÓSTOMO Y MARCELA se distribuye con la esperanza de
+!!	que sea útil, pero SIN GARANTÍA ALGUNA; ni siquiera la garantía
+!!	implícita MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO.
+!!	Consulte los detalles de la Licencia Pública General GNU para más
+!!	información.
 !!
 !!	Debería haber recibido una copia de la Licencia Pública General GNU
-!!	junto a LA PEQUEÑA CERILLERA. En caso contrario, consulte
-!!	<http://www.gnu.org/licenses/>.
+!!	junto a HISTORIA DE GRISÓSTOMO Y MARCELA. En caso contrario,
+!!	consulte <http://www.gnu.org/licenses/>.
 !!
-!!	Copyright (c) 2010-2018, J. Francisco Martín
+!!	Copyright (c) 2018, J. Francisco Martín
 !!
 !!------------------------------------------------------------------------------
 !!
 !!	HISTORIAL DE VERSIONES
 !!
-!!	4.2: 2018/10/16	Modificación de los símbolos de raya —aprovechando la
-!!					posibilidad de utilizar la codificación de caracteres UTF-8
-!!					con la versión 6.34 del compilador—. Se elimina el modo de
-!!					de compilación "estricto" —utilizado para depurar—.
-!!	4.1: 2018/10/13	Pequeñas correcciones en los estilos de Vorple. Añadido
-!!					atributo 'remarkable' al objeto Cerilla. Corrección de un
-!!					error al seleccionar el estilo destacado por defecto cuando
-!!					se especificaba el estilo TEXT_STYLES_UPRIGHT.
-!!	4.0: 2018/10/02	Creada infraestructura para compilar alternativamente la
-!!					versión de escritorio con soporte completo de las
-!!					funcionalidades Glulx, o una versión móvil/web con soporte
-!!					multimedia a través de la interfaz Vorple (si el intérprete
-!!					del usuario lo soporta. En caso contrario, esta versión
-!!					carece de funcionalidades multimedia). Modificada la
-!!					codificación de caracteres a UTF-8 (requiere la versión
-!!					6.34 o superior del compilador).
-!!	3.2: 2018/06/08	Actualización de las extensiones de hipervínculos y de
-!!					mensajes de la librería. Correcciones en el tutorial.
-!!					Refactorización de código para permitir compilación de una
-!!					versión web, sin ciertas funcionalidades. Nuevas opciones
-!!					de configuración.
-!!	3.1: 2018/05/15	Corrección de erratas y eliminación de ruido en la pista de
-!!					audio SFX_VIENTO.
-!!	3.0: 2018/05/14	Nueva refactorización de código. Añadida versión Glulx con
-!!					efectos de audio.
-!!	2.0: 2013/06/02	Refactorización general de código.
-!!	1.2: 2010/12/13	Revisión con corrección de errores.
-!!	1.1: 2010/12/10	Revisión con corrección de errores.
-!!	1.0: 2010/12/09	Versión inicial.
+!!	1.0: 2018/11/16	Versión inicial.
 !!
 !!------------------------------------------------------------------------------
 !!
