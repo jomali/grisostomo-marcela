@@ -74,6 +74,7 @@
 !!	<>	Control de las extensiones utilizadas por la obra
 !!	<>	Definiciones generales
 !!	<>	Definiciones de la librería Inform
+!!	<>	Configuración de la extensión 'choiceSet'
 !!	<>	Configuración de la interfaz gráfica con 'GWindows'
 !!	<>	Configuración de la extensión 'hyperlinks'
 !!	<>	Configuración de la librería de mensajes 'SpanishLM'
@@ -168,6 +169,19 @@ Constant SIN_MENSAJES;			! Se omiten los mensajes por defecto de la lib.
 #Ifdef USE_EXTENDED_LIBRARY;
 Constant WITHOUT_DIRECTIONS;	! Se omiten las dir. por defecto de la lib.
 #Endif; ! USE_EXTENDED_LIBRARY;
+
+!!------------------------------------------------------------------------------
+!!	Configuración de la extensión 'choiceSet'
+!!------------------------------------------------------------------------------
+
+Constant CSET_STYLE 1;
+Constant CSET_PREFIX "[";
+Constant CSET_SUFIX "]";
+Constant CSET_MSG1 "";
+Constant CSET_MSG2 "";
+Constant CSET_COMMA " / ";
+Constant CSET_OR " / ";
+Constant CSET_NO_MSG "Listado de opciones vacío";
 
 !!------------------------------------------------------------------------------
 !!	Configuración de la interfaz gráfica con 'GWindows'
@@ -804,7 +818,7 @@ Include "vorple-screen-effects.h";
 	Util.horizontal_rule();
 	new_line;
 
-	!! Narrador en presente y tercera persona
+	!! Narrador en pasado y tercera persona
 	Util.set_grammatical_inflection(THIRD_PERSON_PAST);
 	!! Establece el estilo del inventario:
 	inventory_style = ENGLISH_BIT + RECURSE_BIT + FULLINV_BIT;

@@ -344,7 +344,7 @@ print "Salvo por los gentilhombres, vestidos con largos ropajes oscuros, y sus s
 new_line;
 return true;
 2: ! ##TalkTo
-print "Tras ver desde lejos a aquella procesión de gente, nuestro [Quijote](protagonista) se había acercado hasta allí picado por la curiosidad, pero seguía sin comprender las razones de tan singular enterramiento. Preguntó al joven pastor que tenía más cerca.
+print "Tras ver desde lejos a aquella procesión de gente, nuestro [Quijote](protagonista) se había acercado hasta allí empujado por la curiosidad, pero seguía sin comprender las razones de tan singular enterramiento. Preguntó al joven pastor que tenía más cerca.
 ^^
 Le contaron entre susurros que [Grisostomo], el fallecido, era un hidalgo rico, vecino de un lugar que estaba en aquellas sierras, el cual había sido estudiante muchos años en Salamanca, al cabo de los cuales había vuelto a su lugar con opinión de muy sabio y muy leído. Y aprendió también que, según los rumores, había muerto de amores de una endiablada moza conocida como Marcela, hija de un tal Guillermo el rico, que se andaba en hábito de pastora por aquellos andurriales.";
 new_line;
