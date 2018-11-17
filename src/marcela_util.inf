@@ -10,9 +10,9 @@
 !!	Autor(es):		J. Francisco Martín <jfm.lisaso@gmail.com>
 !!	Idioma:			ES (Español)
 !!	Sistema:		Inform-INFSP 6
-!!	Plataforma:		Glulx
+!!	Plataforma:		Máquina-Z/Glulx
 !!	Versión:		1.0
-!!	Fecha:			2018/11/16
+!!	Fecha:			2018/11/18
 !!
 !!------------------------------------------------------------------------------
 !!
@@ -340,12 +340,12 @@ Object	Util "(Utilities)"
 		!!	@returns {boolean} Verdadero si la versión compilada utiliza
 		!!		recursos multimedia y se lanza el efecto con éxito. Falso en
 		!!		caso contrario
-		!!	@version 3.0
+		!!	@version 1.0
 		!!----------------------------------------------------------------------
 		fade_in [ track volume fade_time simple_fade_in
-			result js_variable;
-			!! FIXME - simple_fade_in
+			result js_track;
 			!! FIXME - si el volumen pasado como parámetro < volumen actual
+			!! FIXME - simple_fade_in
 			result = false;
 			#Ifdef TARGET_GLULX;
 
@@ -371,18 +371,13 @@ Object	Util "(Utilities)"
 			#Ifdef USE_VORPLE;
 			if (isVorpleSupported()) {
 				switch (track) {
-					MUS_FINAL:			js_variable = "jsFinal";
-					SFX_CAJA_CERILLAS:	js_variable = "jsCajaCerillas";
-					SFX_CERILLA_1:		js_variable = "jsCerilla1";
-					SFX_CERILLA_2:		js_variable = "jsCerilla2";
-					SFX_CERILLA_3:		js_variable = "jsCerilla3";
-					SFX_PASOS_NIEVE:	js_variable = "jsPasosNieve";
-					SFX_VIENTO:			js_variable = "jsViento";
+					MUS_SOUNDTRACK:	js_track = "jsSoundtrack";
+					SFX_WIND:		js_track = "jsWindSFX";
 				}
 				VorpleExecuteJavaScriptCommand(BuildCommand("
-					", js_variable, ".volume(0);
-					", js_variable, ".play();
-					result = ", js_variable, ".fade(0.0, 1.0, 100);
+					", js_track, ".volume(0);
+					", js_track, ".play();
+					result = ", js_track, ".fade(0.0, 1.0, 100);
 					console.log('Fade-in: ' + result);
 				"));
 				result = true;
@@ -393,7 +388,7 @@ Object	Util "(Utilities)"
 
 			#Endif; ! TARGET_GLULX;
 			!! (por evitar alertas del compilador)
-			track = volume + fade_time + simple_fade_in + js_variable;
+			track = volume + fade_time + simple_fade_in + js_track;
 			return result;
 		],
 		!!----------------------------------------------------------------------
@@ -458,13 +453,8 @@ Object	Util "(Utilities)"
 			#Ifdef USE_VORPLE;
 			if (isVorpleSupported()) {
 				switch (track) {
-					MUS_FINAL:			js_track = "jsFinal";
-					SFX_CAJA_CERILLAS:	js_track = "jsCajaCerillas";
-					SFX_CERILLA_1:		js_track = "jsCerilla1";
-					SFX_CERILLA_2:		js_track = "jsCerilla2";
-					SFX_CERILLA_3:		js_track = "jsCerilla3";
-					SFX_PASOS_NIEVE:	js_track = "jsPasosNieve";
-					SFX_VIENTO:			js_track = "jsViento";
+					MUS_SOUNDTRACK:	js_track = "jsSoundtrack";
+					SFX_WIND:		js_track = "jsWindSFX";
 				}
 				VorpleExecuteJavaScriptCommand(BuildCommand("
 					if (", js_track, ".playing()) {
@@ -613,65 +603,24 @@ Object	Util "(Utilities)"
 			!!			VOLUMEN [0-100],
 			!!			REPETICIONES (-1 para repeticiones infinitas)
 			!!		);
-			Damusix.AsignarCanal(MUS_FINAL, 0, 100, 1);
-			Damusix.AsignarCanal(SFX_VIENTO, 1, 100, -1);
-			Damusix.AsignarCanal(SFX_PASOS_NIEVE, 2, 100, 1);
+			Damusix.AsignarCanal(MUS_SOUNDTRACK, 0, 100, -1);
+			Damusix.AsignarCanal(SFX_WIND, 1, 100, -1);
 			#Endif; ! USE_DAMUSIX;
 
 			#Ifdef USE_VORPLE;
 			if (isVorpleSupported()) {
-				!! MUS_FINAL:
+				!! MUS_SOUNDTRACK
 				VorpleExecuteJavaScriptCommand("
-					var jsFinal = new Howl({
-						src: ['resources/audio/kevin-macleod_silent-night.ogg'],
-						loop: false,
+					var jsSoundtrack = new Howl({
+						src: ['resources/audio/antonio-de-cabezon_duuiensela.ogg'],
+						loop: true,
 						volume: 1.0
 					});
 				");
-				!! SFX_CAJA_CERILLAS:
+				!! SFX_WIND
 				VorpleExecuteJavaScriptCommand("
-					var jsCajaCerillas = new Howl({
-						src: ['resources/audio/jarredgibb_matchbox-shake.ogg'],
-						loop: false,
-						volume: 1.0
-					});
-				");
-				!! SFX_CERILLA_1:
-				VorpleExecuteJavaScriptCommand("
-					var jsCerilla1 = new Howl({
-						src: ['resources/audio/jarredgibb_match-strike-and-light-01.ogg'],
-						loop: false,
-						volume: 1.0
-					});
-				");
-				!! SFX_CERILLA_2:
-				VorpleExecuteJavaScriptCommand("
-					var jsCerilla2 = new Howl({
-						src: ['resources/audio/jarredgibb_match-strike-and-light-02.ogg'],
-						loop: false,
-						volume: 1.0
-					});
-				");
-				!! SFX_CERILLA_3:
-				VorpleExecuteJavaScriptCommand("
-					var jsCerilla3 = new Howl({
-						src: ['resources/audio/jarredgibb_match-strike-and-light-03.ogg'],
-						loop: false,
-						volume: 1.0
-					});
-				");
-				!! SFX_PASOS_NIEVE:
-				VorpleExecuteJavaScriptCommand("
-					var jsPasosNieve = new Howl({
-						src: ['resources/audio/mediagruppen_walking-in-snow.ogg'],
-						loop: false,
-						volume: 1.0
-					});
-				");
-				!! SFX_VIENTO:
-				VorpleExecuteJavaScriptCommand("
-					var jsViento = new Howl({
-						src: ['resources/audio/memuse_california-night-time-suburb-ambience-distant-traffic.ogg'],
+					var jsWindSFX = new Howl({
+						src: ['resources/audio/bdvictor_wheat-in-the-wind.ogg'],
 						loop: true,
 						volume: 1.0
 					});

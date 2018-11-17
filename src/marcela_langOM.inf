@@ -1,57 +1,6 @@
 
 
-!!==============================================================================
-!!
-!!	HISTORIA DE GRISÓSTOMO Y MARCELA
-!!	Mensajes de localidades y objetos
-!!
-!!==============================================================================
-!!
-!!	Archivo:		marcela_objects.txt
-!!	Autor(es):		J. Francisco Martín <jfm.lisaso@gmail.com>
-!!	Idioma:			ES (Español)
-!!	Sistema:		Inform-INFSP 6
-!!	Plataforma:		Máquina-Z/Glulx
-!!	Versión:		1.0
-!!	Fecha:			2018/11/18
-!!
-!!------------------------------------------------------------------------------
-!!
-!!	Este archivo forma parte de la ficción interactiva
-!!	HISTORIA DE GRISÓSTOMO Y MARCELA.
-!!
-!!	HISTORIA DE GRISÓSTOMO Y MARCELA es software libre: usted puede
-!!	redistribuirlo y/o modificarlo bajo los términos de la Licencia
-!!	Pública General GNU publicada por la Fundación para el Software
-!!	Libre, ya sea la versión 3 de la Licencia, o (a su elección)
-!!	cualquier versión posterior.
-!!
-!!	HISTORIA DE GRISÓSTOMO Y MARCELA se distribuye con la esperanza de
-!!	que sea útil, pero SIN GARANTÍA ALGUNA; ni siquiera la garantía
-!!	implícita MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO.
-!!	Consulte los detalles de la Licencia Pública General GNU para más
-!!	información.
-!!
-!!	Debería haber recibido una copia de la Licencia Pública General GNU
-!!	junto a HISTORIA DE GRISÓSTOMO Y MARCELA. En caso contrario,
-!!	consulte <http://www.gnu.org/licenses/>.
-!!
-!!	Copyright (c) 2018, J. Francisco Martín
-!!
-!!------------------------------------------------------------------------------
-!!
-!!	TABLA DE CONTENIDOS
-!!
-!!	1)	Rutina de selección de mensajes del modelo de mundo
-!!	2)	Tabla de mensajes
-!!
-!!------------------------------------------------------------------------------
 
-!!==============================================================================
-!!
-!!	1)	Rutina de selección de mensajes del modelo de mundo
-!!
-!!------------------------------------------------------------------------------
 
 [ O__M obj n x1;
 	if (n == 0) n = 1;
@@ -59,17 +8,11 @@
 ];
 
 
-!!==============================================================================
-!!
-!!	2)	Tabla de mensajes
-!!
-!!------------------------------------------------------------------------------
 
 [ LanguageOM obj n x1
 	previous_style;
 	switch (obj) {
 
-!!------------------------------------------------------------------------------
 Ambrosio: switch (n) {
 1: ! (inicio)
 print "—Éste es el lugar.";
@@ -80,7 +23,11 @@ print "—Aquí me dijo él que vio la vez primera a aquella enemiga mortal del 
 new_line;
 return true;
 3: ! (inicio)
-print "El que hablaba tenía el nombre de [Ambrosio] —uno de los [Personas](pastores) se había referido así a él al llegar—. Estaba de pie junto a [la Sepultura] que acababan de abrir en la tierra. Y junto al [Grisostomo](cadáver) que escuchaba en silencio.";
+print "El que hablaba tenía el nombre de ", (name) Ambrosio, " —uno de los ";
+Util.extended_print(Personas, "pastores", -1);
+print " se había referido así a él al llegar—. Estaba de pie junto a ", (the) Sepultura, " que acababan de abrir en la tierra. Y junto al ";
+Util.extended_print(Grisostomo, "cadáver", -1);
+print " que escuchaba en silencio.";
 new_line;
 return true;
 4: ! (inicio)
@@ -88,58 +35,67 @@ print "—Y aquí, en memoria de tantas desdichas, quiso él que lo depositasen 
 new_line;
 return true;
 5: ! ##Examine
-print "Como los otros [Personas](pastores), vestía con una zamarra de negra lana y estaba coronado con una guirnalda que a lo que parecía era de ciprés. Aliviaba parte de su peso sobre un pico que en ese momento hacía servir a modo de báculo.";
+print "Como los otros ";
+Util.extended_print(Personas, "pastores", -1);
+print ", vestía con una zamarra de negra lana y estaba coronado con una guirnalda que a lo que parecía era de ciprés. Aliviaba parte de su peso sobre un pico que en ese momento hacía servir a modo de báculo.";
 new_line;
 return true;
 6: ! (discurso)
 print "El pastor siguió con su prédica:
 ^^
-—Ese cuerpo, señores, que con piadosos ojos estáis mirando, fue depositario de un alma en quien el cielo puso infinita parte de sus riquezas. Ese es el cuerpo de [Grisostomo], que fue único en el ingenio, solo en la cortesía, extremo en la gentileza, fénix en la amistad, magnífico sin tasa, grave sin presunción, alegre sin bajeza, y, finalmente, primero en todo lo que es ser bueno, y sin segundo en todo lo que fue ser desdichado.";
+—Ese cuerpo, señores, que con piadosos ojos estáis mirando, fue depositario de un alma en quien el cielo puso infinita parte de sus riquezas. Ese es el cuerpo de ", (name) Grisostomo, ", que fue único en el ingenio, solo en la cortesía, extremo en la gentileza, fénix en la amistad, magnífico sin tasa, grave sin presunción, alegre sin bajeza, y, finalmente, primero en todo lo que es ser bueno, y sin segundo en todo lo que fue ser desdichado.";
 new_line;
 return true;
 7: ! (discurso)
-print "—Quiso bien, fue aborrecido —continuaba [Ambrosio]—; adoró, fue desengañado; rogó a una fiera, importunó a un mármol, corrió tras el viento, dio voces a la soledad, sirvió a la ingratitud, de quien alcanzó por premio ser despojos de la muerte en mitad de la carrera de la vida, a la cual dio fin una pastora a quien él procuraba eternizar para que viviera en la memoria de las gentes, cual lo pudieran mostrar bien esos [Papeles] que estáis mirando, si él no me hubiera mandado que los entregara en compañía de su [Grisostomo](cuerpo) a la tierra.";
+print "—Quiso bien, fue aborrecido —continuaba ", (name) Ambrosio, "—; adoró, fue desengañado; rogó a una fiera, importunó a un mármol, corrió tras el viento, dio voces a la soledad, sirvió a la ingratitud, de quien alcanzó por premio ser despojos de la muerte en mitad de la carrera de la vida, a la cual dio fin una pastora a quien él procuraba eternizar para que viviera en la memoria de las gentes, cual lo pudieran mostrar bien esos ", (name) Papeles, " que estáis mirando, si él no me hubiera mandado que los entregara en compañía de su ";
+Util.extended_print(Grisostomo, "cuerpo", -1);
+print " a la tierra.";
 new_line;
 return true;
 8: ! (reacción)
-print "—¿Vienes a ver, por ventura, ¡oh fiero basilisco destas montañas!, si con tu presencia vierten sangre las heridas deste miserable a quien tu crueldad quitó la vida? —[Ambrosio] parecía escupir cada palabra— ¿O vienes a ufanarte en las crueles hazañas de tu condición, o a ver desde esa altura, como otro despiadado Nero, el incendio de la abrasada Roma, o a pisar, arrogante, este desdichado [Grisostomo](cadáver), como la ingrata hija al de su padre Tarquino?";
+print "—¿Vienes a ver, por ventura, ¡oh fiero basilisco destas montañas!, si con tu presencia vierten sangre las heridas deste miserable a quien tu crueldad quitó la vida? —", (name) Ambrosio, " parecía escupir cada palabra— ¿O vienes a ufanarte en las crueles hazañas de tu condición, o a ver desde esa altura, como otro despiadado Nero, el incendio de la abrasada Roma, o a pisar, arrogante, este desdichado ";
+Util.extended_print(Grisostomo, "cadáver", -1);
+print ", como la ingrata hija al de su padre Tarquino?";
 new_line;
 return true;
 9:
-print "Enajenado por la ira, [Ambrosio] miraba el camino por el que acababa de partir Marcela. Sus nudillos blancos por la fuerza con la que agarraba el pico. Resultaba evidente que no había quedado de ningún modo conforme ante la elocuente alegación de la pastora.";
+print "Enajenado por la ira, ", (name) Ambrosio, " miraba el camino por el que acababa de partir Marcela. Sus nudillos blancos por la fuerza con la que agarraba el pico. Resultaba evidente que no había quedado de ningún modo conforme ante la elocuente alegación de la pastora.";
 new_line;
 return true;
 10: ! ##TalkTo
-print "El pastor estaba en mitad de un grave discurso sobre su [Grisostomo](difunto) amigo. No pensaba interrumpirle en ese momento.";
+print "El pastor estaba en mitad de un grave discurso sobre su ";
+Util.extended_print(Grisostomo, "difunto", -1);
+print " amigo. No pensaba interrumpirle en ese momento.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Campo: switch (n) {
 1:
 print "Se había reunido allí alrededor de una veintena de personas, pastores en su mayoría, aunque se distinguía también a dos gentilhombres de la zona junto con unos mozos que los atendían. El día apenas había comenzado a descubrirse por los balcones del oriente.";
 new_line;
 return true;
 2: ! ##Examine
-print "Entre todos conformaban un grupo de unas veinte [Personas], reunidas haciendo corro alrededor";
+print "Entre todos conformaban un grupo de unas veinte ", (name) Personas, ", reunidas haciendo corro alrededor";
 return true;
 3: ! ##Examine
 print " de un amplio hoyo cavado en la tierra";
 return true;
 4: ! ##Examine
-print " del cadáver de [Grisostomo]";
+print " del cadáver de ", (name) Grisostomo, "";
 return true;
 5: ! ##Examine
 print ". Estaban en mitad un extenso brezal salpicado de algunos madroños y olivos silvestres.";
 new_line;
 return true;
 6: ! ##Examine
-print "El pastor llamado [Ambrosio], en pie junto al [Grisostomo](difunto), se dirigía a los allí congregados.";
+print "El pastor llamado ", (name) Ambrosio, ", en pie junto al ";
+Util.extended_print(Grisostomo, "difunto", -1);
+print ", se dirigía a los allí congregados.";
 new_line;
 return true;
 7: ! ##Examine
-print "La atención de todos estaba puesta en [Ambrosio] y [Marcela].";
+print "La atención de todos estaba puesta en ", (name) Ambrosio, " y ", (name) Marcela, ".";
 new_line;
 return true;
 8: ! ##Examine
@@ -151,12 +107,11 @@ print "Todos escuchaban en el más absoluto silencio.";
 new_line;
 return true;
 10: ! ##Examine
-print "Al final del día quedó en aquel campo, al pie de la peña donde está la fuente del alcornoque, nuestro caballero don [Quijote], sólo junto a la tristísima [Sepultura]. Todos los demás hacía tiempo que habían decidido marcharse ya.";
+print "Al final del día quedó en aquel campo, al pie de la peña donde está la fuente del alcornoque, nuestro caballero don ", (name) Quijote, ", sólo junto a la tristísima ", (name) Sepultura, ". Todos los demás hacía tiempo que habían decidido marcharse ya.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Cielo: switch (n) {
 1: ! ##Examine
 print "Se iba tornando más luminoso por momentos, a medida que el sol se elevaba lentamente por sobre el horizonte.";
@@ -168,19 +123,17 @@ new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Grisostomo: switch (n) {
 1: ! ##Examine
-print "Lo habían traído antes de la luz primera en unas andas cubiertas de mucha diversidad de flores y de ramos. El cuerpo, cubierto igualmente de flores, estaba vestido como pastor, de edad, al parecer, de treinta años; y, aunque muerto, mostraba que vivo había sido de rostro hermoso y de disposición gallarda. Alrededor de él tenía en las mismas andas algunos libros y muchos [Papeles], abiertos y cerrados.";
+print "Lo habían traído antes de la luz primera en unas andas cubiertas de mucha diversidad de flores y de ramos. El cuerpo, cubierto igualmente de flores, estaba vestido como pastor, de edad, al parecer, de treinta años; y, aunque muerto, mostraba que vivo había sido de rostro hermoso y de disposición gallarda. Alrededor de él tenía en las mismas andas algunos libros y muchos ", (name) Papeles, ", abiertos y cerrados.";
 new_line;
 return true;
 2: ! ##TalkTo
-print "Probablemente él no fuese el mejor interlocutor en aquel lugar.";
+print "Probablemente él no fuese el mejor interlocutor del grupo.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 HelpManager: switch (n) {
 1:
 previous_style = Util.set_text_style(TEXT_STYLE_PARSER);
@@ -225,7 +178,7 @@ return true;
 5:
 previous_style = Util.set_text_style(TEXT_STYLE_PARSER);
 print (string) TEXT_STYLE_PARSER_PREFIX;
-print "Puedes interactuar con prácticamente cualquiera de los objetos presentes en la descripción que se imprime al introducir una línea en blanco —aquellos que aparecen con un estilo de texto diferente—. Para hacerlo, simplemente tienes que teclear el nombre del objeto, o hacer clic con el ratón sobre la palabra destacada. Por ejemplo, puedes probar a teclear «[Ambrosio]» o «[Sepultura]».";
+print "Puedes interactuar con prácticamente cualquiera de los objetos presentes en la descripción que se imprime al introducir una línea en blanco —aquellos que aparecen con un estilo de texto diferente—. Para hacerlo, simplemente tienes que teclear el nombre del objeto, o hacer clic con el ratón sobre la palabra destacada. Por ejemplo, puedes probar a teclear «", (name) Ambrosio, "» o «", (name) Sepultura, "».";
 print (string) TEXT_STYLE_PARSER_SUFIX;
 Util.set_text_style(previous_style);
 new_line;
@@ -266,20 +219,18 @@ new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Limbo: switch (n) {
 1:	! ##Examine (A - general)
 print "Más allá de la barrera casi insuperable que separa la realidad de todo lo demás. Un lugar etéreo, donde la vida, la materia y la vitalidad no son necesariamente constantes; un lugar donde el tiempo y el espacio no existen tal y como los capta nuestro ser despierto...";
 return true;
 2:	! ##Examine (B - la primera vez)
-print " *bienvenido al mundo del sueño*.";
+print " ", (emph) "bienvenido al mundo del sueño", ".";
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Marcela: switch (n) {
 1:
-print "En ese momento se produjo una maravillosa visión —que tal parecía ella— que improvisamente se les ofreció a los ojos; y fue que, por cima de la peña donde se había cavado [la Sepultura], pareció la pastora [Marcela], tan hermosa que pasaba su fama a su hermosura.";
+print "En ese momento se produjo una maravillosa visión —que tal parecía ella— que improvisamente se les ofreció a los ojos; y fue que, por cima de la peña donde se había cavado ", (the) Sepultura, ", pareció la pastora ", (name) Marcela, ", tan hermosa que pasaba su fama a su hermosura.";
 new_line;
 return true;
 2: ! ##Examine
@@ -287,11 +238,15 @@ print "Los que hasta entonces no la habían visto la miraban con admiración y s
 new_line;
 return true;
 3:
-print "—No vengo, ¡oh [Ambrosio]!, a ninguna cosa de las que has dicho —respondió la [Marcela](mujer)—, sino a volver por mí misma, y a dar a entender cuán fuera de razón van todos aquellos que de sus penas y de la muerte de [Grisostomo] me culpan.";
+print "—No vengo, ¡oh ", (name) Ambrosio, "!, a ninguna cosa de las que has dicho —respondió la ";
+Util.extended_print(Marcela, "mujer", -1);
+print "—, sino a volver por mí misma, y a dar a entender cuán fuera de razón van todos aquellos que de sus penas y de la muerte de ", (name) Grisostomo, " me culpan.";
 new_line;
 return true;
 4:
-print "Tras un largo minuto, se dirigió [Marcela] con claras y mesuradas palabras a todos los [Personas](hombres) allí reunidos:";
+print "Tras un largo minuto, se dirigió ", (name) Marcela, " con claras y mesuradas palabras a todos los ";
+Util.extended_print(Personas, "hombres", -1);
+print " allí reunidos:";
 new_line;
 return true;
 5:
@@ -303,33 +258,38 @@ print "—Hízome el cielo, según vosotros decís, hermosa, y de tal manera que
 new_line;
 return true;
 7:
-print "—Yo nací libre, y para poder vivir libre escogí la soledad de los campos. Los árboles destas montañas son mi compañía, las claras aguas destos arroyos mis espejos. Fuego soy apartado y espada puesta lejos. A los que he enamorado con la vista he desengañado con las palabras. Y si los deseos se sustentan con esperanzas, no habiendo dado yo alguna a [Grisostomo] ni a otro alguno, el fin de ninguno dellos bien se puede decir que antes le mató su porfía que mi crueldad. Pues en verdad porfió desengañado, desesperó sin ser aborrecido: ¡mirad ahora si será razón que de su pena se me dé a mí la culpa! Quéjese el engañado, desespérese aquel a quien le faltaron las prometidas esperanzas, confiése el que yo llamare, ufánese el que yo admitiere; pero no me llame cruel ni homicida aquel a quien yo no prometo, engaño, llamo ni admito.";
+print "—Yo nací libre, y para poder vivir libre escogí la soledad de los campos. Los árboles destas montañas son mi compañía, las claras aguas destos arroyos mis espejos. Fuego soy apartado y espada puesta lejos. A los que he enamorado con la vista he desengañado con las palabras. Y si los deseos se sustentan con esperanzas, no habiendo dado yo alguna a ", (name) Grisostomo, " ni a otro alguno, el fin de ninguno dellos bien se puede decir que antes le mató su porfía que mi crueldad. Pues en verdad porfió desengañado, desesperó sin ser aborrecido: ¡mirad ahora si será razón que de su pena se me dé a mí la culpa! Quéjese el engañado, desespérese aquel a quien le faltaron las prometidas esperanzas, confiése el que yo llamare, ufánese el que yo admitiere; pero no me llame cruel ni homicida aquel a quien yo no prometo, engaño, llamo ni admito.";
 new_line;
 return true;
 8:
-print "—Este general desengaño sirva a cada uno de los que me solicitan de su particular provecho; y entiéndase, de aquí adelante, que si alguno por mí muriere, no muere de celoso ni desdichado, porque quien a nadie quiere, a ninguno debe dar celos; que los desengaños no se han de tomar en cuenta de desdenes —miró ahora directamente a los ojos a [Ambrosio]—. El que me llama fiera y basilisco, déjeme como cosa perjudicial y mala; el que me llama ingrata, no me sirva; el que desconocida, no me conozca; quien cruel, no me siga; que esta fiera, este basilisco, esta ingrata, esta cruel y esta desconocida, ni los buscará, servirá, conocerá ni seguirá de ninguna manera. Tienen mis deseos por término estas montañas, y si de aquí salen, es a contemplar la hermosura del cielo.";
+print "—Este general desengaño sirva a cada uno de los que me solicitan de su particular provecho; y entiéndase, de aquí adelante, que si alguno por mí muriere, no muere de celoso ni desdichado, porque quien a nadie quiere, a ninguno debe dar celos; que los desengaños no se han de tomar en cuenta de desdenes —miró ahora directamente a los ojos a ", (name) Ambrosio, "—. El que me llama fiera y basilisco, déjeme como cosa perjudicial y mala; el que me llama ingrata, no me sirva; el que desconocida, no me conozca; quien cruel, no me siga; que esta fiera, este basilisco, esta ingrata, esta cruel y esta desconocida, ni los buscará, servirá, conocerá ni seguirá de ninguna manera. Tienen mis deseos por término estas montañas, y si de aquí salen, es a contemplar la hermosura del cielo.";
 new_line;
 return true;
 9:
-print "Y, en diciendo esto, sin querer oír respuesta alguna, volvió las espaldas y se entró por lo más cerrado del monte cercano, dejando admirados a todos los [Personas](hombres) que allí estaban.";
+print "Y, en diciendo esto, sin querer oír respuesta alguna, volvió las espaldas y se entró por lo más cerrado del monte cercano, dejando admirados a todos los ";
+Util.extended_print(Personas, "hombres", -1);
+print " que allí estaban.";
 new_line;
 return true;
 10: ! ##TalkTo
-print "No pensaba interrumpir a la [Marcela](mujer) en su discurso.";
+print "No pensaba interrumpir a la ";
+Util.extended_print(Marcela, "mujer", -1);
+print " en su discurso.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Papeles: switch (n) {
 1: ! ##Examine
 print "Un gran montón de libros y papeles se disputan con las flores la tarea de adornar el cuerpo ";
 return true;
 2: ! ##Examine
-print " del [Grisostomo](difunto).";
+print " del ";
+Util.extended_print(Grisostomo, "difunto", -1);
+print ".";
 return true;
 3: ! ##Examine
-print " de [Grisostomo].";
+print " de ", (name) Grisostomo, ".";
 return true;
 4: ! ##Take
 print "No pensaba tentar de nuevo a la suerte.";
@@ -337,26 +297,29 @@ new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Personas: switch (n) {
 1: ! ##TalkTo
 print "Salvo por los gentilhombres, vestidos con largos ropajes oscuros, y sus sirvientes, que llevaban camisolas sencillas, los demás tenían toda la apariencia de ser pastores de la zona; vestidos con pellicos negros y coronadas las cabezas con guirnaldas de ciprés y de amarga adelfa. Traía cada uno un grueso bastón de acebo en la mano.";
 new_line;
 return true;
 2: ! ##TalkTo
-print "Tras ver desde lejos a aquella procesión de gente, nuestro [Quijote](protagonista) se había acercado hasta allí picado por la curiosidad, pero seguía sin comprender las razones de tan singular enterramiento. Preguntó al joven pastor que tenía más cerca.
+print "Tras ver desde lejos a aquella procesión de gente, nuestro ";
+Util.extended_print(Quijote, "protagonista", -1);
+print " se había acercado hasta allí picado por la curiosidad, pero seguía sin comprender las razones de tan singular enterramiento. Preguntó al joven pastor que tenía más cerca.
 ^^
-Le contaron entre susurros que [Grisostomo], el fallecido, era un hidalgo rico, vecino de un lugar que estaba en aquellas sierras, el cual había sido estudiante muchos años en Salamanca, al cabo de los cuales había vuelto a su lugar con opinión de muy sabio y muy leído. Y aprendió también que, según los rumores, había muerto de amores de una endiablada moza conocida como Marcela, hija de un tal Guillermo el rico, que se andaba en hábito de pastora por aquellos andurriales.";
+Le contaron entre susurros que ", (name) Grisostomo, ", el fallecido, era un hidalgo rico, vecino de un lugar que estaba en aquellas sierras, el cual había sido estudiante muchos años en Salamanca, al cabo de los cuales había vuelto a su lugar con opinión de muy sabio y muy leído. Y aprendió también que, según los rumores, había muerto de amores de una endiablada moza conocida como Marcela, hija de un tal Guillermo el rico, que se andaba en hábito de pastora por aquellos andurriales.";
 new_line;
 return true;
 3: ! ##TalkTo
 print "Se inclinó de nuevo para volver a preguntar al pastor, pero éste le cortó de inmediato:
 ^^
-—Es momento de guardar silencio y de respetar al [Grisostomo](difunto).";
+—Es momento de guardar silencio y de respetar al ";
+Util.extended_print(Grisostomo, "difunto", -1);
+print ".";
 new_line;
 return true;
 4: ! ##TalkTo
-print "Insatisfeha su curiosidad acerca de aquella pastora Marcela y de la forma en que había causado la muerte del sabio y muy leído [Grisostomo], se dispuso a preguntar a otro de los pastores que tenía cerca. Pero en cuanto abrió la boca, antes siquiera de pronunciar sonido alguno, sintió un tremendo dolor en el pie. Al girarse para entender lo que ocurría se encontró con el mohín malhumorado del primer pastor con el que había cruzado palabra; éste se había llevado a la boca un dedo de la mano que tenía libre  —conminándolo a las claras a guardar silencio—, mientras que con la otra zarandeaba levemente su grueso báculo de acebo  —con la intención, si bien rudimentaria, hartamente exitosa, de subrayar la petición de silencio—.";
+print "Insatisfeha su curiosidad acerca de aquella pastora Marcela y de la forma en que había causado la muerte del sabio y muy leído ", (name) Grisostomo, ", se dispuso a preguntar a otro de los pastores que tenía cerca. Pero en cuanto abrió la boca, antes siquiera de pronunciar sonido alguno, sintió un tremendo dolor en el pie. Al girarse para entender lo que ocurría se encontró con el mohín malhumorado del primer pastor con el que había cruzado palabra; éste se había llevado a la boca un dedo de la mano que tenía libre  —conminándolo a las claras a guardar silencio—, mientras que con la otra zarandeaba levemente su grueso báculo de acebo  —con la intención, si bien rudimentaria, hartamente exitosa, de subrayar la petición de silencio—.";
 new_line;
 return true;
 5: ! ##TalkTo
@@ -364,25 +327,24 @@ print "Antes de intentar abrir de nuevo la boca pensó en su pie dolorido y en l
 new_line;
 return true;
 6: ! ##TalkTo
-print "Por un momento sintió el impulso de preguntar si aquella mujer era en verdad [Marcela], pero se contuvo; no podía tratarse de ninguna otra.";
+print "Por un momento sintió el impulso de preguntar si aquella mujer era en verdad ", (name) Marcela, ", pero se contuvo; no podía tratarse de ninguna otra.";
 new_line;
 return true;
 7: ! ##Examine
-print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos, y entre los que se encontraba el propio [Ambrosio]— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
+print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos, y entre los que se encontraba el propio ", (name) Ambrosio, "— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Poema: switch (n) {
 1: ! ##Take
 print "Aprovechando que los presentes tenían la atención puesta en ";
 return true;
 2: ! ##Take
-print "el discurso de [Ambrosio]";
+print "el discurso de ", (name) Ambrosio, "";
 return true;
 3: ! ##Take
-print "el enfrentamiento entre [Ambrosio] y la pastora [Marcela]";
+print "el enfrentamiento entre ", (name) Ambrosio, " y la pastora ", (name) Marcela, "";
 return true;
 4: ! ##Take
 print ", nuestro caballero se agachó presto y recogió con disimulo uno de aquellos papeles, pensando que nadie se percataría de su curiosidad. El pastor ";
@@ -398,11 +360,15 @@ print "que antes le había animado a guardar silencio, sin embargo, se percató,
 Por segunda vez";
 return true;
 7: ! ##Take
-print " nuestro héroe juzgó prudente no responder a tamaña afrenta; por respeto al [Grisostomo](difunto), principalmente, y por respeto a la envergadura de aquellos báculos, además, si bien en menor medida. Y consideró que así como un caballero andante debe saber encontrar la valentía para enfrentarse a sus enemigos, debe también saber respetar la solemnidad de una ocasión como aquella, soportar el dolor con gallardía y no caer en provocaciones vanas.";
+print " nuestro héroe juzgó prudente no responder a tamaña afrenta; por respeto al ";
+Util.extended_print(Grisostomo, "difunto", -1);
+print ", principalmente, y por respeto a la envergadura de aquellos báculos, además, si bien en menor medida. Y consideró que así como un caballero andante debe saber encontrar la valentía para enfrentarse a sus enemigos, debe también saber respetar la solemnidad de una ocasión como aquella, soportar el dolor con gallardía y no caer en provocaciones vanas.";
 new_line;
 return true;
 8: ! ##Examine
-print "Se trataba de un manuscrito lleno de correcciones; un fragmento, sin duda, de un poemario de mayor longitud en el que el [Grisostomo](fallecido) debía haber estado trabajando.";
+print "Se trataba de un manuscrito lleno de correcciones; un fragmento, sin duda, de un poemario de mayor longitud en el que el ";
+Util.extended_print(Grisostomo, "fallecido", -1);
+print " debía haber estado trabajando.";
 return true;
 9: ! ##Read
 print "Rezaba de la siguiente manera:";
@@ -428,33 +394,32 @@ print "Mata un desdén, atierra la paciencia,
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Quijote: switch (n) {
 1: ! ##Examine
 print "Frisaba la edad de nuestro protagonista con los cincuenta años. De complexión recia, seco de carnes, enjuo de rostro. La vetusta espada que llevaba encajada al cinto y la trotada armadura con la que parcialmente se revestía habían causado sin duda sorpresa entre los presentes; los cuales, sin embargo, y por el motivo que fuere, se habían guardado mucho de hacer comentario al respecto alguno.";
 new_line;
 return true;
 2:
-print "Lo cual visto por don [Quijote], pareciéndole que allí venía bien usar de su caballería, en altas e inteligibles voces, dijo:";
+print "Lo cual visto por don ", (name) Quijote, ", pareciéndole que allí venía bien usar de su caballería, en altas e inteligibles voces, dijo:";
 new_line;
 return true;
 3:
-print "—Ninguna persona, de cualquier estado y condición que sea, se atreva a seguir a la hermosa [Marcela], so pena de caer en la furiosa indignación mía —y, entanto esto decía, colocó la mano en el puño de su espada—. Ella ha demostrado con claras y suficientes razones la poca o ninguna culpa que ha tenido en la muerte de [Grisostomo], y cuán ajena vive de condescender con los deseos de ninguno de sus amantes, a cuya causa es justo que, en lugar de ser seguida y perseguida, sea honrada y estimada de todos los buenos del mundo, pues muestra que en él ella es sola la que con tan honesta intención vive.";
+print "—Ninguna persona, de cualquier estado y condición que sea, se atreva a seguir a la hermosa ", (name) Marcela, ", so pena de caer en la furiosa indignación mía —y, entanto esto decía, colocó la mano en el puño de su espada—. Ella ha demostrado con claras y suficientes razones la poca o ninguna culpa que ha tenido en la muerte de ", (name) Grisostomo, ", y cuán ajena vive de condescender con los deseos de ninguno de sus amantes, a cuya causa es justo que, en lugar de ser seguida y perseguida, sea honrada y estimada de todos los buenos del mundo, pues muestra que en él ella es sola la que con tan honesta intención vive.";
 new_line;
 return true;
 4:
-print "O ya fuese por las amenazas de don [Quijote], o porque aquellas gentes decidiesen al cabo concluir con lo que a su buen amigo debían, ninguno se movió ni apartó de allí hasta que no finalizaron de enterrar el cuerpo de [Grisostomo], no sin muchas lágrimas de los circunstantes.";
+print "O ya fuese por las amenazas de don ", (name) Quijote, ", o porque aquellas gentes decidiesen al cabo concluir con lo que a su buen amigo debían, ninguno se movió ni apartó de allí hasta que no finalizaron de enterrar el cuerpo de ", (name) Grisostomo, ", no sin muchas lágrimas de los circunstantes.";
 return true;
 5:
 print "Y mandaron colocar sobre la sepultura, algún tiempo después, una losa en la que rezaba el siguiente epitafio:";
 new_line;
 return true;
 6:
-print "De lo que aconteció a don [Quijote] en tiempos posteriores a esta aventura, y aún también previos, ya otros dejaron mejor constancia por escrito.";
+print "De lo que aconteció a don ", (name) Quijote, " en tiempos posteriores a esta aventura, y aún también previos, ya otros dejaron mejor constancia por escrito.";
 new_line;
 return true;
 7:
-print "Y, tras sin duda debatir arduamente consigo mismo, y decidido por fin, [Ambrosio] salió corriendo por tras la hermosa [Marcela], con la cara desencajada por completo y el pico con el que hacía unos minutos había abierto la sepultura de su amigo en ristre.";
+print "Y, tras sin duda debatir arduamente consigo mismo, y decidido por fin, ", (name) Ambrosio, " salió corriendo por tras la hermosa ", (name) Marcela, ", con la cara desencajada por completo y el pico con el que hacía unos minutos había abierto la sepultura de su amigo en ristre.";
 new_line;
 return true;
 8:
@@ -462,24 +427,25 @@ print "Cuando los demás quisieron reaccionar ya era demasiado tarde.";
 new_line;
 return true;
 9:
-print "Aquella mañana enterraron juntos a los dos cuerpos, no sin muchas lágrimas sinceras de los circunstantes. Salvo por don [Quijote], aturdido por la horrible atrocidad que se acababa de producir allí hasta tal punto que ni siquiera las lágrimas acertaban a acudir a los ojos.";
+print "Aquella mañana enterraron juntos a los dos cuerpos, no sin muchas lágrimas sinceras de los circunstantes. Salvo por don ", (name) Quijote, ", aturdido por la horrible atrocidad que se acababa de producir allí hasta tal punto que ni siquiera las lágrimas acertaban a acudir a los ojos.";
 return true;
 10:
-print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de *El ingenioso hidalgo Don Quijote de la Mancha*, escrita por **Miguel de Cervantes Saavedra** y publicada por primera vez en 1605. El texto íntegro del libro es del dominio público.
+print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de ", (emph) "El ingenioso hidalgo Don Quijote de la Mancha", ", escrita por ", (strong) "Miguel de Cervantes Saavedra", " y publicada por primera vez en 1605. El texto íntegro del libro es del dominio público.
 ^^
-El diseño, programación y los textos adicionales utilizados para dar forma a la presente adaptación han sido obra de **J. Francisco Martín Lisaso**. Publicada por primera vez en noviembre de 2018 con licencia GNU GPL v3.
+El diseño, programación y los textos adicionales utilizados para dar forma a la presente adaptación han sido obra de ", (strong) "J. Francisco Martín Lisaso", ". Publicada por primera vez en noviembre de 2018 con licencia GNU GPL v3.
 ^^
-La melodía que puede escucharse se titula *Duuiensela* y es obra del compositor renacentista español **Antonio de Cabezón**. La pista de audio utilizada es una grabación al clavicordio interpretada por la tecladista estadounidense **Joan Benson** y publicada con licencia CC-BY-SA-2.0.
+La melodía que puede escucharse se titula ", (emph) "Duuiensela", " y es obra del compositor renacentista español ", (strong) "Antonio de Cabezón", ". La pista de audio utilizada es una grabación al clavicordio interpretada por la tecladista estadounidense ", (strong) "Joan Benson", " y publicada con licencia CC-BY-SA-2.0.
 ^^
 Los personajes de Cervantes siguen siendo modernos más de cuatrocientos años después. Lamentablemente a veces.";
 new_line;
 return true;
 }
 
-!!------------------------------------------------------------------------------
 Sepultura: switch (n) {
 1: ! ##Examine
-print "Entre cuatro de aquellos [Personas](pastores) habían abierto la sepultura, utilizando agudos picos, a un lado de una dura peña.";
+print "Entre cuatro de aquellos ";
+Util.extended_print(Personas, "pastores", -1);
+print " habían abierto la sepultura, utilizando agudos picos, a un lado de una dura peña.";
 new_line;
 return true;
 2: ! ##Examine

@@ -16,9 +16,9 @@
 !!	Autor(es):		J. Francisco Martín <jfm.lisaso@gmail.com>
 !!	Idioma:			ES (Español)
 !!	Sistema:		Inform-INFSP 6
-!!	Plataforma:		Glulx
+!!	Plataforma:		Máquina-Z/Glulx
 !!	Versión:		1.0
-!!	Fecha:			2018/11/16
+!!	Fecha:			2018/11/18
 !!
 !!------------------------------------------------------------------------------
 !!
@@ -95,7 +95,7 @@ Constant Checking 1;
 Release 0; ! Serial "181116"; ! TODO
 
 !! Descomentar para compilar la versión Web/Móvil:
-Constant VERSION_WEB_MOBILE;
+!! Constant VERSION_WEB_MOBILE;
 
 !!------------------------------------------------------------------------------
 !!	Control de las extensiones utilizadas por la obra
@@ -140,7 +140,8 @@ Constant DEFAULT_HYPERLINKS_STATUS_2 1;
 
 !! Referencias a los recursos multimedia en Máquina-Z:
 #Ifdef TARGET_ZCODE;
-!! FIXME
+Constant MUS_SOUNDTRACK 0;
+Constant SFX_WIND 1;
 #Endif; ! TARGET_ZCODE;
 
 #Ifndef USE_EXTENDED_LIBRARY;
@@ -266,8 +267,6 @@ Default THIRD_PERSON_FUTURE		= 9;
 Constant HEADER_STYLE_FGC $CD9C4D; ! #CD9C4D
 !! Color de fondo del estilo de texto Usuario 1:
 Constant USR1_STYLE_BGC	$E9CDA0; ! #E9CDA0
-!! Color frontal del estilo de texto Usuario 2:
-Constant USR2_STYLE_FGC $808080; ! #808080
 
 Constant TEXT_STYLE_PARSER TEXT_STYLE_STRESSED;
 Constant TEXT_STYLE_PARSER_PREFIX "[";
@@ -785,6 +784,7 @@ Include "vorple-screen-effects.h";
 
 	!! Inicializaciones de la obra ---------------------------------------------
 	!! Créditos:
+	Util.fade_in(SFX_WIND, 100, 1000);
 	new_line;
 	Banner();
 	new_line;
@@ -800,14 +800,11 @@ Include "vorple-screen-effects.h";
 	#Endif; ! USE_VORPLE;
 	Util.press_any_key();
 	Util.erase_window();
-
-	!! FIXME - efectos de sonido
-
 	new_line;
 	Util.horizontal_rule();
 	new_line;
 
-	!! Narrador en pasado y tercera persona
+	!! Narrador en presente y tercera persona
 	Util.set_grammatical_inflection(THIRD_PERSON_PAST);
 	!! Establece el estilo del inventario:
 	inventory_style = ENGLISH_BIT + RECURSE_BIT + FULLINV_BIT;

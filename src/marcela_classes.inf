@@ -11,9 +11,9 @@
 !!	Autor(es):		J. Francisco Martín <jfm.lisaso@gmail.com>
 !!	Idioma:			ES (Español)
 !!	Sistema:		Inform-INFSP 6
-!!	Plataforma:		Glulx
+!!	Plataforma:		Máquina-Z/Glulx
 !!	Versión:		1.0
-!!	Fecha:			2018/11/16
+!!	Fecha:			2018/11/18
 !!
 !!------------------------------------------------------------------------------
 !!
@@ -108,13 +108,13 @@ Attribute remarkable;
 !!------------------------------------------------------------------------------
 
 Class	Thing
- with	action_set 0,
-		capacity_size	-1,	! Capacidad total: en cuanto a tamaño
-		capacity_volume	-1,	! Capacidad total: en cuanto a volumen
-		capacity_weight	-1,	! Capacidad total: en cuanto a peso
-		size	0,			! Tamaño
-		volume	0,			! Volumen
-		weight	0,			! Peso
+ with	capacity_size -1,	! Capacidad total: en cuanto a tamaño
+		capacity_volume -1,	! Capacidad total: en cuanto a volumen
+		capacity_weight -1,	! Capacidad total: en cuanto a peso
+		size 0,				! Tamaño
+		state 0,			! Estado
+		volume 0,			! Volumen
+		weight 0,			! Peso
 		description [;
 			switch (Util.get_grammatical_inflection) {
 				FIRST_PERSON_PRESENT:
@@ -316,4 +316,5 @@ Class	Room
 		!! comportamiento de la acción ##Look en el archivo de mensajes de la
 		!! librería):
 		inhibit_object_list false,
+		state 0,
  has	light;
