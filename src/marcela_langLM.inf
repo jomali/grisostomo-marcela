@@ -94,7 +94,8 @@ Object	LibraryMessages
 		orden HABLA (a/con) PERSONAJE.";
 
 	Attack: !! XXX - Mensaje personalizado del narrador
-		"No tenía fuerzas para hacer eso.";
+		"No tenía intención de iniciar una pelea sin motivo contra aquella
+		gente.";
 
 	CommandsOff:
 		switch (lm_n) {
@@ -128,14 +129,15 @@ Object	LibraryMessages
 
 	Eat: !! XXX - Mensaje personalizado del narrador
 		switch (lm_n) {
-			1: "Tenía muchísimo hambre pero eso era simplemente incomestible.";
+			1: "Aquello simplemente era incomestible.";
 			2: "Se comió ", (the) lm_o, ".";
 		}
 
 !!	FullScore: ! TODO - Mensaje del parser
 
 	Jump: !! XXX - Mensaje personalizado del narrador
-		"Apenas podía ponerse en pie, mucho menos saltar.";
+		"Un caballero andante no era realmente un caballero sin su armadura,
+		pero el precio eran ciertos límites en la libertad de movimiento.";
 
 	LMode1:
 		!! La acción LMode1 se genera ante el comando BREVE. La librería
@@ -158,9 +160,12 @@ Object	LibraryMessages
 		estado antes).";
 
 	Mild, Strong: !! XXX - Mensaje personalizado del narrador
-		print_ret (parser) "No se debería utilizar ese lenguaje en un cuento
-		infantil. Si tienes dificultades para continuar con la historia tal
-		vez quieras probar a teclear AYUDA.";
+		print_ret (parser) "Éste narrador podría, por su parte, calificar a
+		vuestra merced de truhán moderno y majadero antiguo, de villana y
+		grosera tela tejido, echacuervos, corazón de mantequillas, ánimo de
+		ratón casero, alma endurecida o pan mal empleado. Mas se abstendrá de
+		hacerlo, por considerarlo descortés. Si tenéis dificultades para
+		continuar con la historia tal vez debierais probar a teclear AYUDA.";
 
 	Miscellany:
 		!! Esta es una falsa acción que se usa simplemente para agrupar aquí
@@ -335,8 +340,7 @@ Object	LibraryMessages
 		print_ret (parser) "Notificación de puntuación desactivada.";
 
 	Pray: !! XXX - Mensaje personalizado del narrador
-		"Se preguntó si Dios y si su abuela la estarían mirando desde el cielo
-		en aquel momento. ---Oh, abuelita... ¡cuánto te echo de menos!";
+		"Elevó una plegaria por el alma del desdichado difunto.";
 
 	Pronouns:
 		!! Esta acción (generada por el verbo PRONOMBRES) muestra una lista
@@ -514,13 +518,12 @@ Object	LibraryMessages
 		"Nunca supo nadar y, en cualquier caso, no podría haberlo hecho allí.";
 
 	Think: !! XXX - Mensaje personalizado del narrador
-		"Apenas podía pensar con claridad, agotada y completamente entumecida
-		por el frío como estaba.";
+		"No era momento para ensoñaciones.";
 
 	VagueGo:
+		!! XXX - Mensaje personalizado del narrador
 		!! El usuario ha dicho IR sin especificar a dónde
-		!! TODO - Se podrían mostrar las salidas
-		print_ret (parser) "Tienes que especificar en qué dirección ir.";
+		"Aún no había llegado el momento de moverse de allí.";
 
 	Verify:
 		!!	1:	Éxito.
@@ -537,7 +540,7 @@ Object	LibraryMessages
 		}
 
 	Wait: !! XXX - Mensaje personalizado del narrador
-		"Hacía más frío y todo estaba más oscuro por momentos.";
+		"El tiempo pasaba...";
 
 	Yes:
 		print_ret (parser) "La instrucción @<<SÍ@>> no tiene sentido en esta
