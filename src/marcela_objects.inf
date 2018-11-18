@@ -390,7 +390,20 @@ Atrezzo	-> Papeles "papeles"
 			new_line;
 			return true;
 		],
-		before [;
+		before [
+			previous_style;
+			DefaultAction:
+				if (self has described) {
+					if (self.state > 0) <<Examine self>>;
+					self.state++;
+					previous_style = Util.set_text_style(TEXT_STYLE_PARSER);
+					print (string) TEXT_STYLE_PARSER_PREFIX;
+					print "coger ", (name) self;
+					print (string) TEXT_STYLE_PARSER_SUFIX;
+					Util.set_text_style(previous_style);
+					new_line;
+					<<Take self>>;
+				}
 			Take:
 				if (Poema hasnt moved) <<Take Poema>>;
 				return O__M(self, 4);
@@ -445,7 +458,7 @@ NPC		-> Personas "personas"
 Item	-> Poema "poema"
  with	name_f 'anotacion' 'cuartilla' 'hoja' 'lamina' 'nota',
 		name_m 'manuscrito' 'papel' 'pliego' 'poema',
-		gender G_FEMENINO,
+		gender G_MASCULINO,
 		description [;
 			O__M(self, 8);
 			if (self hasnt described) {
@@ -457,6 +470,10 @@ Item	-> Poema "poema"
 		],
 		before [
 			previous_style;
+			Examine:
+				if (~~IndirectlyContains(Quijote, self)) {
+					<<Take self>>;
+				}
 			Read:
 				O__M(self, 9);
 				new_line;
@@ -465,6 +482,17 @@ Item	-> Poema "poema"
 				Util.set_text_style(previous_style);
 				new_line;
 				return true;
+			Take:
+				if (self has moved) return false;
+				move self to Quijote;
+				give self moved;
+				O__M(self, 1);
+				if (Marcela in Campo) O__M(self, 3);
+				else O__M(self, 2);
+				O__M(self, 4);
+				if (Quijote.golpe_del_pastor) O__M(self, 6);
+				else O__M(self, 5);
+				return O__M(self, 7);
 		],
  has	concealed male;
 

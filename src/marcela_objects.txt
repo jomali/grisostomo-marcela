@@ -402,11 +402,13 @@ print "que antes le había animado a guardar silencio, sin embargo, se percató,
 Por segunda vez";
 return true;
 7: ! ##Take
-print " nuestro héroe juzgó prudente no responder a tamaña afrenta; por respeto al [Grisostomo](difunto), principalmente, y por respeto a la envergadura de aquellos báculos, además, si bien en menor medida. Y consideró que así como un caballero andante debe saber encontrar la valentía para enfrentarse a sus enemigos, debe también saber respetar la solemnidad de una ocasión como aquella, soportar el dolor con gallardía y no caer en provocaciones vanas.";
+print " nuestro héroe juzgó prudente no responder a tamaña afrenta; por respeto al [Grisostomo](difunto), principalmente, y por respeto a la envergadura de aquellos báculos, además, si bien en menor medida. Y consideró que así como un caballero andante debe saber encontrar la valentía para enfrentarse a sus enemigos, debe también saber respetar la solemnidad de una ocasión como aquella, soportar el dolor con gallardía y no caer en provocaciones vanas.
+^^
+Aquel papel parecía alguna especie de [Poema](manuscrito).";
 new_line;
 return true;
 8: ! ##Examine
-print "Se trataba de un manuscrito lleno de correcciones; un fragmento, sin duda, de un poemario de mayor longitud en el que el [Grisostomo](fallecido) debía haber estado trabajando.";
+print "Se trataba, en efecto, de un manuscrito lleno de correcciones; un fragmento, sin duda, de un poemario de mayor longitud en el que el [Grisostomo](fallecido) debía haber estado trabajando.";
 return true;
 9: ! ##Read
 print "Rezaba de la siguiente manera:";
@@ -472,7 +474,7 @@ Una losa marcó desde entonces el lugar de la triste sepultura. En ella, en un �
 new_line;
 return true;
 10:
-print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de *El ingenioso hidalgo Don Quijote de la Mancha*, escrita por **Miguel de Cervantes Saavedra** y publicada por primera vez en 1605. El texto íntegro del libro es del dominio público.
+print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de *El ingenioso hidalgo Don Quijote de la Mancha*, escrita por **Miguel de Cervantes Saavedra** y publicada por primera vez en 1605. Se ha procurado respetar al máximo la literalidad del original, sin que la pretensión de volverlo más inteligible o introducir un discurso contemporáneo constituyese una excusa para su manipulación. El texto íntegro del libro es del dominio público.
 ^^
 El diseño, programación y los textos adicionales utilizados para dar forma a la presente adaptación han sido obra de **J. Francisco Martín Lisaso**. Publicada por primera vez en noviembre de 2018 con licencia GNU GPL v3.
 ^^
