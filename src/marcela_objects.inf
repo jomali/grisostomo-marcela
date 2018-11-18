@@ -76,14 +76,37 @@ NPC		-> Quijote "Quijote"
 			return O__M(self, 1);
 		],
 		react_before [;
-			Dance:
-				if (noun == nothing) <<Dance self>>;
 			Inv:
 				<<Examine self>>;
+			Think:
+				if (noun == nothing) {
+					switch (self.state) {
+							0:
+								self.state++;
+								return O__M(self, 11);
+							1:
+								self.state++;
+								return O__M(self, 12);
+							default:
+								return O__M(self, 13);
+					}
+				}
 		],
-		before [;
-			Dance:
-				return O__M(self, 10);
+		final [;
+			new_line;
+			Util.horizontal_rule();
+			new_line;
+			O__M(self, 10);
+			Util.press_any_key();
+			new_line;
+			print (header) "FIN^";
+			Util.press_any_key();
+			new_line;
+			print (parser) "Pulsa cualquier tecla para terminar";
+			Util.press_any_key();
+			Util.fade_out(MUS_SOUNDTRACK, 0, 500, true);
+			Util.fade_out(SFX_WIND, 0, 500, true);
+			@restart;
 		],
 		epilogo false,
 		golpe_del_pastor false,
@@ -143,6 +166,8 @@ Room	Campo "Al pie de una peña"
 				O__M(Ambrosio, 3);
 				new_line;
 				O__M(Ambrosio, 4);
+				Util.fade_in(SFX_WIND, 100, 0);
+				Util.fade_out(MUS_SOUNDTRACK, 0, 5000);
 				return true;
 			}
 			!! Antes de la aparición de Marcela:
@@ -155,6 +180,11 @@ Room	Campo "Al pie de una peña"
 					O__M(self, 6);
 					return true;
 			}
+			!! Aparición de Marcela:
+			if (self.state == 9) {
+				O__M(self, 11);
+				return true;
+			}
 			!! Discurso de Marcela:
 			if (self.state <= 14) {
 				switch (Shuffle(3, descriptionFlags)) {
@@ -163,26 +193,30 @@ Room	Campo "Al pie de una peña"
 					3:	return O__M(self, 9);
 				}
 			}
+			if (self.state == 16) {
+				O__M(Ambrosio, 9);
+				DecisionFinal.bloqueada = true;
+				ChoiceSetManager.start(DecisionFinal);
+				return true;
+			}
 			!! Tras la partida de Marcela:
-			!! FIXME
-			"Descripción de la localidad.";
+			return O__M(self, 12);
 		],
 		react_before [;
 			CSETSelected:
 				return false;
 			default:
 				if (DecisionFinal.bloqueada) {
+					ChoiceSetManager.start(DecisionFinal);
 					return true;
 				}
 		],
+		before [;
+			Listen:
+				return O__M(Quijote, 14);
+		],
 		daemon [ previous_style;
 			switch (self.state) {
-
-				2:
-					DecisionFinal.bloqueada = true;
-					ChoiceSetManager.start(DecisionFinal);
-					return true;
-
 				!! Intervención de Ambrosio:
 				3:
 					Grisostomo.nombre_conocido = true;
@@ -191,7 +225,6 @@ Room	Campo "Al pie de una peña"
 				5:
 					new_line;
 					O__M(Ambrosio, 7);
-					!! StopDaemon(self); ! FIXME
 				8:
 					move Marcela to self;
 					new_line;
@@ -204,6 +237,7 @@ Room	Campo "Al pie de una peña"
 					new_line;
 					O__M(Marcela, 3);
 				12:
+					Util.fade_in(MUS_SOUNDTRACK, 50, 10000, false);
 					new_line;
 					O__M(Marcela, 4);
 					new_line;
@@ -212,52 +246,18 @@ Room	Campo "Al pie de una peña"
 					new_line;
 					O__M(Marcela, 7);
 				14:
-					!! Marcela se va
+					move Marcela to Limbo;
 					new_line;
 					O__M(Marcela, 8);
 					new_line;
 					O__M(Marcela, 9);
 				!! Reacción de Ambrosio:
-				15:
-					new_line;
-					O__M(Personas, 6);
 				16:
-					new_line;
-					O__M(Ambrosio, 9);
-					DecisionFinal.bloqueada = true;
-					ChoiceSetManager.start(DecisionFinal);
-				17:
 					StopDaemon(self);
-					new_line;
-					O__M(Quijote, 2);
-					new_line;
-					O__M(Quijote, 3);
-					Util.fade_in(MUS_SOUNDTRACK, 20, 1000, true);
-					Util.press_any_key();
-					new_line;
-					O__M(Quijote, 4);
-					O__M(Quijote, 5);
-					new_line;
-					previous_style = Util.set_text_style(TEXT_STYLE_STRESSED);
-					O__M(Sepultura, 3);
-					Util.set_text_style(previous_style);
-					new_line;
-					O__M(Quijote, 6);
-					Util.fade_in(MUS_SOUNDTRACK, 60, 1000, true);
-					Util.press_any_key();
-					new_line;
-					Util.horizontal_rule();
-					new_line;
-					O__M(Quijote, 10);
-					Util.fade_in(MUS_SOUNDTRACK, 100, 1000, true);
-					Util.press_any_key();
-					new_line;
-					print (header) "FIN^";
-					Util.press_any_key();
-					new_line;
-					print (parser) "Pulsa cualquier tecla para terminar";
-					Util.press_any_key();
-					@restart;
+					if (~~DecisionFinal.bloqueada) {
+						new_line;
+						<<Look>>;
+					}
 			}
 			self.state++;
 			return true;
@@ -491,8 +491,27 @@ ChoiceSetItem	Intervenir
 			Util.extended_print("Intervenir", 0, -1);
 		],
 		keys 'actuar' 'intervenir',
-		reaction [;
+		reaction [
+			previous_style;
 			DecisionFinal.bloqueada = false;
+			O__M(Quijote, 2);
+			new_line;
+			O__M(Quijote, 3);
+			Util.press_any_key();
+			new_line;
+			O__M(Quijote, 4);
+			print " ";
+			O__M(Quijote, 5);
+			new_line;
+			previous_style = Util.set_text_style(TEXT_STYLE_STRESSED);
+			O__M(Sepultura, 3);
+			Util.set_text_style(previous_style);
+			Util.fade_in(MUS_SOUNDTRACK, 100, 1000);
+			Util.press_any_key();
+			new_line;
+			O__M(Quijote, 6);
+			Util.press_any_key();
+			return Quijote.final();
 		],
 		relatives NoHacerNada,
 		append_choice_set false;
@@ -502,8 +521,28 @@ ChoiceSetItem	NoHacerNada
 			Util.extended_print("No hacer nada", 0, -1);
 		],
 		keys 'no' 'hacer' 'nada' 'actuar',
-		reaction [;
+		reaction [
+			previous_style;
 			DecisionFinal.bloqueada = false;
+			O__M(Quijote, 7);
+			Util.press_any_key();
+			new_line;
+			O__M(Quijote, 8);
+			Util.fade_out(SFX_WIND, 0, 0);
+			Util.fade_out(MUS_SOUNDTRACK, 0, 500, true);
+			Util.press_any_key();
+			new_line;
+			O__M(Quijote, 9);
+			new_line;
+			previous_style = Util.set_text_style(TEXT_STYLE_STRESSED);
+			O__M(Sepultura, 4);
+			Util.set_text_style(previous_style);
+			Util.fade_in(SFX_WIND, 100, 1000);
+			Util.press_any_key();
+			new_line;
+			O__M(Quijote, 6);
+			Util.press_any_key();
+			return Quijote.final();
 		],
 		relatives Intervenir,
 		append_choice_set false;

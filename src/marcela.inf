@@ -646,6 +646,7 @@ Include "vorple-screen-effects.h";
 !!	@returns Nada
 !!------------------------------------------------------------------------------
 [ BeforeParsing;
+	ChoiceSetManager.run();
 	#Ifdef PARSING_PREPROCESSOR;
 	ParsingPreprocessor.run();
 	#Endif; ! PARSING_PREPROCESSOR;
@@ -798,7 +799,7 @@ Include "vorple-screen-effects.h";
 
 	!! Inicializaciones de la obra ---------------------------------------------
 	!! Créditos:
-	Util.fade_in(SFX_WIND, 100, 1000);
+	Util.fade_in(MUS_SOUNDTRACK, 100, 0, true);
 	new_line;
 	Banner();
 	new_line;
@@ -931,6 +932,7 @@ Include "vorple-screen-effects.h";
 !!	<>	##LMode2
 !!	<>	##NoSuchVerb --- Permite eliminar las acciones:
 !!		-	##Sorry
+!!	<>	##Strong
 !!	<>	##TalkOn / ##TalkTo
 !!------------------------------------------------------------------------------
 
@@ -1087,6 +1089,15 @@ Extend	'perdona' replace
 ;
 
 [ NoSuchVerbSub; return ParserError(VERB_PE); ];
+
+
+!!------------------------------------------------------------------------------
+!! ##TalkOn / ##TalkTo
+!!------------------------------------------------------------------------------
+
+Verb	'caraculo' 'capullo' 'cretino' 'culopo' 'culopollo' 'fantoche'
+	'gilipollas' 'hideputa' 'hijoputa''lerdo' 'mentecato' 'palurdo' 'patan'
+	'zopenco' = 'tonto';
 
 !!------------------------------------------------------------------------------
 !! ##TalkOn / ##TalkTo

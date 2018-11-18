@@ -102,7 +102,7 @@ print "—Quiso bien, fue aborrecido —continuaba [Ambrosio]—; adoró, fue de
 new_line;
 return true;
 8: ! (reacción)
-print "—¿Vienes a ver, por ventura, ¡oh fiero basilisco destas montañas!, si con tu presencia vierten sangre las heridas deste miserable a quien tu crueldad quitó la vida? —[Ambrosio] parecía escupir cada palabra— ¿O vienes a ufanarte en las crueles hazañas de tu condición, o a ver desde esa altura, como otro despiadado Nero, el incendio de la abrasada Roma, o a pisar, arrogante, este desdichado [Grisostomo](cadáver), como la ingrata hija al de su padre Tarquino?";
+print "—¿Vienes a ver, por ventura, ¡oh fiero basilisco destas montañas!, si con tu presencia vierten sangre las heridas deste miserable a quien tu crueldad quitó la vida? —[Ambrosio] rompió bruscamente el silencio. Parecía escupir cada palabra— ¿O vienes a ufanarte en las crueles hazañas de tu condición, o a ver desde esa altura, como otro despiadado Nero, el incendio de la abrasada Roma, o a pisar, arrogante, este desdichado [Grisostomo](cadáver), como la ingrata hija al de su padre Tarquino?";
 new_line;
 return true;
 9:
@@ -152,6 +152,14 @@ new_line;
 return true;
 10: ! ##Examine
 print "Al final del día quedó en aquel campo, al pie de la peña donde está la fuente del alcornoque, nuestro caballero don [Quijote], sólo junto a la tristísima [Sepultura]. Todos los demás hacía tiempo que habían decidido marcharse ya.";
+new_line;
+return true;
+11: ! ##Examine
+print "Todos habían mudado la expresión ante la llegada de la [Marcela](pastora); los semblantes serios se habían tornado de pronto en gestos de sorpresa.";
+new_line;
+return true;
+12: ! ##Examine
+print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos, y entre los que se encontraba el propio [Ambrosio]— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
 new_line;
 return true;
 }
@@ -367,10 +375,6 @@ return true;
 print "Por un momento sintió el impulso de preguntar si aquella mujer era en verdad [Marcela], pero se contuvo; no podía tratarse de ninguna otra.";
 new_line;
 return true;
-7: ! ##Examine
-print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos, y entre los que se encontraba el propio [Ambrosio]— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
-new_line;
-return true;
 }
 
 !!------------------------------------------------------------------------------
@@ -435,11 +439,11 @@ print "Frisaba la edad de nuestro protagonista con los cincuenta años. De compl
 new_line;
 return true;
 2:
-print "Lo cual visto por don [Quijote], pareciéndole que allí venía bien usar de su caballería, en altas e inteligibles voces, dijo:";
+print "Visto el descontento del pastor por don [Quijote], pareciéndole que allí venía bien usar de su caballería, en altas e inteligibles voces, dijo:";
 new_line;
 return true;
 3:
-print "—Ninguna persona, de cualquier estado y condición que sea, se atreva a seguir a la hermosa [Marcela], so pena de caer en la furiosa indignación mía —y, entanto esto decía, colocó la mano en el puño de su espada—. Ella ha demostrado con claras y suficientes razones la poca o ninguna culpa que ha tenido en la muerte de [Grisostomo], y cuán ajena vive de condescender con los deseos de ninguno de sus amantes, a cuya causa es justo que, en lugar de ser seguida y perseguida, sea honrada y estimada de todos los buenos del mundo, pues muestra que en él ella es sola la que con tan honesta intención vive.";
+print "—Ninguna persona, de cualquier estado y condición que sea, se atreva a seguir a la hermosa [Marcela], so pena de caer en la furiosa indignación mía —y, en tanto esto decía, colocó la mano en el puño de su espada—. Ella ha demostrado con claras y suficientes razones la poca o ninguna culpa que ha tenido en la muerte de [Grisostomo], y cuán ajena vive de condescender con los deseos de ninguno de sus amantes, a cuya causa es justo que, en lugar de ser seguida y perseguida, sea honrada y estimada de todos los buenos del mundo, pues muestra que en él ella es sola la que con tan honesta intención vive.";
 new_line;
 return true;
 4:
@@ -454,7 +458,7 @@ print "De lo que aconteció a don [Quijote] en tiempos posteriores a esta aventu
 new_line;
 return true;
 7:
-print "Y, tras sin duda debatir arduamente consigo mismo, y decidido por fin, [Ambrosio] salió corriendo por tras la hermosa [Marcela], con la cara desencajada por completo y el pico con el que hacía unos minutos había abierto la sepultura de su amigo en ristre.";
+print "Salió corriendo de pronto [Ambrosio] por tras la hermosa [Marcela], con la cara completamente transformada por la ira y con el pico en ristre; el mismo con el que apenas unos minutos antes había abierto la sepultura de su amigo.";
 new_line;
 return true;
 8:
@@ -462,16 +466,31 @@ print "Cuando los demás quisieron reaccionar ya era demasiado tarde.";
 new_line;
 return true;
 9:
-print "Aquella mañana enterraron juntos a los dos cuerpos, no sin muchas lágrimas sinceras de los circunstantes. Salvo por don [Quijote], aturdido por la horrible atrocidad que se acababa de producir allí hasta tal punto que ni siquiera las lágrimas acertaban a acudir a los ojos.";
+print "Aquella mañana enterraron juntos a los dos pastores, sin discursos adicionales y no sin muchas lágrimas sinceras de los circunstantes. Mas no así las de don [Quijote], aturdido hasta tal punto por la abominable atrocidad que acababan de contemplar sus ojos que las lágrimas no fueron capaces de acudir a ellos hasta mucho tiempo después.
+^^
+Una losa marcó desde entonces el lugar de la triste sepultura, en la que se podía leer el siguiente epitafio, en un cruel último ultraje a la memoria de aquella mujer cuyo único crímen fue intentar vivir en libertad:";
+new_line;
 return true;
 10:
 print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de *El ingenioso hidalgo Don Quijote de la Mancha*, escrita por **Miguel de Cervantes Saavedra** y publicada por primera vez en 1605. El texto íntegro del libro es del dominio público.
 ^^
 El diseño, programación y los textos adicionales utilizados para dar forma a la presente adaptación han sido obra de **J. Francisco Martín Lisaso**. Publicada por primera vez en noviembre de 2018 con licencia GNU GPL v3.
 ^^
-La melodía que puede escucharse se titula *Duuiensela* y es obra del compositor renacentista español **Antonio de Cabezón**. La pista de audio utilizada es una grabación al clavicordio interpretada por la tecladista estadounidense **Joan Benson** y publicada con licencia CC-BY-SA-2.0.
-^^
-Los personajes de Cervantes siguen siendo modernos más de cuatrocientos años después. Lamentablemente a veces.";
+La melodía que puede escucharse se titula *Duuiensela* y es obra del compositor renacentista español **Antonio de Cabezón**. La pista de audio utilizada es una grabación al clavicordio interpretada por la tecladista estadounidense **Joan Benson** y publicada con licencia CC-BY-SA-2.0.";
+new_line;
+return true;
+11: ! ##Think
+print "@>> ¡Oh Dulcinea del Toboso, extremo de toda hermosura, en quien tengo puesta toda mi prometida fe!";
+new_line;
+return true;
+12: ! ##Think
+print "@>> ¡Oh única señora de mis más escondidos pensamientos! En ti vienen a hacerse verdaderos todos los quiméricos atributos de belleza que los poetas dan a sus damas: que tus cabellos son de oro, tu frente campos elíseos, tus cejas arcos del cielo, tus mejillas rosas, tus labios corales, perlas tus dientes, alabrastro tu cuello, mármol tu pecho, marfil tus manos, tu blancura, nieve.";
+13: ! ##Think
+print "@>> ¿Qué hará agora la tu merced?";
+new_line;
+return true;
+14: ! ##Listen
+print "El viento murmuraba entre la hierba y las hojas de los brezos.";
 new_line;
 return true;
 }
