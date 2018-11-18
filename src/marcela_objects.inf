@@ -166,8 +166,6 @@ Room	Campo "Al pie de una peña"
 				O__M(Ambrosio, 3);
 				new_line;
 				O__M(Ambrosio, 4);
-				Util.fade_in(SFX_WIND, 100, 0);
-				Util.fade_out(MUS_SOUNDTRACK, 0, 5000);
 				return true;
 			}
 			!! Antes de la aparición de Marcela:
@@ -506,7 +504,7 @@ ChoiceSetItem	Intervenir
 			previous_style = Util.set_text_style(TEXT_STYLE_STRESSED);
 			O__M(Sepultura, 3);
 			Util.set_text_style(previous_style);
-			Util.fade_in(MUS_SOUNDTRACK, 100, 1000);
+			!! Util.fade_in(MUS_SOUNDTRACK, 100, 1000); ! FIXME
 			Util.press_any_key();
 			new_line;
 			O__M(Quijote, 6);

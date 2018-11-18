@@ -458,7 +458,7 @@ print "De lo que aconteció a don [Quijote] en tiempos posteriores a esta aventu
 new_line;
 return true;
 7:
-print "Salió corriendo de pronto [Ambrosio] por tras la hermosa [Marcela], con la cara completamente transformada por la ira y con el pico en ristre; el mismo con el que apenas unos minutos antes había abierto la sepultura de su amigo.";
+print "Salió corriendo de pronto [Ambrosio] por tras la hermosa [Marcela], con el rostro completamente desfigurado por la ira y con el pico en ristre; el mismo con el que apenas unos minutos antes había abierto la sepultura de su amigo.";
 new_line;
 return true;
 8:
@@ -468,7 +468,7 @@ return true;
 9:
 print "Aquella mañana enterraron juntos a los dos pastores, sin discursos adicionales y no sin muchas lágrimas sinceras de los circunstantes. Mas no así las de don [Quijote], aturdido hasta tal punto por la abominable atrocidad que acababan de contemplar sus ojos que las lágrimas no fueron capaces de acudir a ellos hasta mucho tiempo después.
 ^^
-Una losa marcó desde entonces el lugar de la triste sepultura, en la que se podía leer el siguiente epitafio, en un cruel último ultraje a la memoria de aquella mujer cuyo único crímen fue intentar vivir en libertad:";
+Una losa marcó desde entonces el lugar de la triste sepultura. En ella, en un último y cruel ultraje a la memoria de aquella mujer cuyo único crímen fue vivir en libertad, se podía leer el siguiente epitafio:";
 new_line;
 return true;
 10:

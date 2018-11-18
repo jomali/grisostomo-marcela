@@ -371,15 +371,37 @@ Object	Util "(Utilities)"
 			#Ifdef USE_VORPLE;
 			if (isVorpleSupported()) {
 				switch (track) {
-					MUS_SOUNDTRACK:	js_track = "jsSoundtrack";
-					SFX_WIND:		js_track = "jsWindSFX";
+					MUS_SOUNDTRACK:
+						js_track = "jsSoundtrack";
+						VorpleExecuteJavaScriptCommand("
+							var jsSoundtrack = new Howl({
+								src: ['resources/audio/antonio-de-cabezon_duuiensela.ogg'],
+								loop: true,
+								volume: 1.0
+							});
+						");
+						VorpleExecuteJavaScriptCommand(BuildCommand("
+							", js_track, ".volume(0);
+							", js_track, ".play();
+							result = ", js_track, ".fade(0.0, 0.75, 100);
+							console.log('Fade-in: ' + result);
+						"));
+					SFX_WIND:
+						js_track = "jsWindSFX";
+						VorpleExecuteJavaScriptCommand("
+							var jsWindSFX = new Howl({
+								src: ['resources/audio/bdvictor_wheat-in-the-wind.ogg'],
+								loop: true,
+								volume: 1.0
+							});
+						");
+						VorpleExecuteJavaScriptCommand(BuildCommand("
+							", js_track, ".volume(0);
+							", js_track, ".play();
+							result = ", js_track, ".fade(0.0, 1.0, 100);
+							console.log('Fade-in: ' + result);
+						"));
 				}
-				VorpleExecuteJavaScriptCommand(BuildCommand("
-					", js_track, ".volume(0);
-					", js_track, ".play();
-					result = ", js_track, ".fade(0.0, 1.0, 100);
-					console.log('Fade-in: ' + result);
-				"));
 				result = true;
 			} else {
 				result = false;
@@ -606,27 +628,6 @@ Object	Util "(Utilities)"
 			Damusix.AsignarCanal(MUS_SOUNDTRACK, 0, 100, -1);
 			Damusix.AsignarCanal(SFX_WIND, 1, 100, -1);
 			#Endif; ! USE_DAMUSIX;
-
-			#Ifdef USE_VORPLE;
-			if (isVorpleSupported()) {
-				!! MUS_SOUNDTRACK
-				VorpleExecuteJavaScriptCommand("
-					var jsSoundtrack = new Howl({
-						src: ['resources/audio/antonio-de-cabezon_duuiensela.ogg'],
-						loop: true,
-						volume: 1.0
-					});
-				");
-				!! SFX_WIND
-				VorpleExecuteJavaScriptCommand("
-					var jsWindSFX = new Howl({
-						src: ['resources/audio/bdvictor_wheat-in-the-wind.ogg'],
-						loop: true,
-						volume: 1.0
-					});
-				");
-			}
-			#Endif; ! USE_VORPLE;
 
 			#Endif; ! TARGET_GLULX;
 			return true;
