@@ -79,7 +79,9 @@ return true;
 print "Entre todos conformaban un grupo de unas veinte ", (name) Personas, ", reunidas haciendo corro alrededor";
 return true;
 3: ! ##Examine
-print " de un amplio hoyo cavado en la tierra";
+print " de un amplio ";
+Util.extended_print(Sepultura, "hoyo", -1);
+print " cavado en la tierra";
 return true;
 4: ! ##Examine
 print " del cadáver de ", (name) Grisostomo, "";
@@ -117,7 +119,7 @@ print "; los semblantes serios se habían tornado de pronto en gestos de sorpres
 new_line;
 return true;
 12: ! ##Examine
-print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos, y entre los que se encontraba el propio ", (name) Ambrosio, "— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
+print "Algunos dieron muestras —de aquellos que de la poderosa flecha de los rayos de sus bellos ojos estaban heridos y entre los que se encontraba el propio ", (name) Ambrosio, "— de quererla seguir, sin aprovecharse del manifiesto desengaño que habían oído.";
 new_line;
 return true;
 }
@@ -135,7 +137,9 @@ return true;
 
 Grisostomo: switch (n) {
 1: ! ##Examine
-print "Lo habían traído antes de la luz primera en unas andas cubiertas de mucha diversidad de flores y de ramos. El cuerpo, cubierto igualmente de flores, estaba vestido como pastor, de edad, al parecer, de treinta años; y, aunque muerto, mostraba que vivo había sido de rostro hermoso y de disposición gallarda. Alrededor de él tenía en las mismas andas algunos libros y muchos ", (name) Papeles, ", abiertos y cerrados.";
+print "Lo habían traído antes de la luz primera en unas andas cubiertas de mucha diversidad de flores y de ramos. El ";
+Util.extended_print(Grisostomo, "cuerpo", -1);
+print ", cubierto igualmente de flores, estaba vestido como pastor, de edad, al parecer, de treinta años; y, aunque muerto, mostraba que vivo había sido de rostro hermoso y de disposición gallarda. Alrededor de él tenía en las mismas andas algunos libros y muchos ", (name) Papeles, ", abiertos y cerrados.";
 new_line;
 return true;
 2: ! ##TalkTo
@@ -206,7 +210,7 @@ previous_style = Util.set_text_style(TEXT_STYLE_PARSER);
 print (string) TEXT_STYLE_PARSER_PREFIX;
 print "Esto es todo lo que necesitas para terminar la historia: pulsa «intro» para obtener de nuevo una descripción del entorno junto con los objetos con los que puedes interactuar; y teclea el nombre de uno de ellos o haz clic sobre él para ejecutar una acción por defecto sobre ese objeto.
 ^^
-Hay, sin embargo, muchas otras acciones que puedes utilizar para conocer más información acerca del infortunado Grisóstomo y sobre la pastora Marcela. Puede que encuentres divertido experimentar y teclear distintas instrucciones para conocer más sobre el mundo en el que se desarrolla la escena.";
+Hay, sin embargo, muchas otras acciones que puedes utilizar para conocer más información acerca del infortunado Grisóstomo y sobre la pastora Marcela. Puede que encuentres divertido experimentar con ellas; ", (printx) "piensa", " posibles instrucciones y prueba a teclearlas para conocer más sobre el mundo en el que se desarrolla la escena.";
 print (string) TEXT_STYLE_PARSER_SUFIX;
 Util.set_text_style(previous_style);
 new_line;
@@ -268,7 +272,7 @@ print "—Hízome el cielo, según vosotros decís, hermosa, y de tal manera que
 new_line;
 return true;
 7:
-print "—Yo nací libre, y para poder vivir libre escogí la soledad de los campos. Los árboles destas montañas son mi compañía, las claras aguas destos arroyos mis espejos. Fuego soy apartado y espada puesta lejos. A los que he enamorado con la vista he desengañado con las palabras. Y si los deseos se sustentan con esperanzas, no habiendo dado yo alguna a ", (name) Grisostomo, " ni a otro alguno, el fin de ninguno dellos bien se puede decir que antes le mató su porfía que mi crueldad. Pues en verdad porfió desengañado, desesperó sin ser aborrecido: ¡mirad ahora si será razón que de su pena se me dé a mí la culpa! Quéjese el engañado, desespérese aquel a quien le faltaron las prometidas esperanzas, confiése el que yo llamare, ufánese el que yo admitiere; pero no me llame cruel ni homicida aquel a quien yo no prometo, engaño, llamo ni admito.";
+print "—Yo nací libre, y para poder vivir libre escogí la soledad de los campos —las palabras de ", (name) Marcela, " ganaban fuerza a medida que avanzaba en su discurso—. Los árboles destas montañas son mi compañía, las claras aguas destos arroyos mis espejos. Fuego soy apartado y espada puesta lejos. A los que he enamorado con la vista he desengañado con las palabras. Y si los deseos se sustentan con esperanzas, no habiendo dado yo alguna a ", (name) Grisostomo, " ni a otro alguno, el fin de ninguno dellos bien se puede decir que antes le mató su porfía que mi crueldad. Pues en verdad porfió desengañado, desesperó sin ser aborrecido: ¡mirad ahora si será razón que de su pena se me dé a mí la culpa! Quéjese el engañado, desespérese aquel a quien le faltaron las prometidas esperanzas, confiése el que yo llamare, ufánese el que yo admitiere; pero no me llame cruel ni homicida aquel a quien yo no prometo, engaño, llamo ni admito.";
 new_line;
 return true;
 8:
@@ -291,7 +295,7 @@ return true;
 
 Papeles: switch (n) {
 1: ! ##Examine
-print "Un gran montón de libros y papeles se disputan con las flores la tarea de adornar el cuerpo ";
+print "Un gran montón de libros y papeles se disputaban con las flores la tarea de adornar el cuerpo ";
 return true;
 2: ! ##Examine
 print " del ";
@@ -309,7 +313,9 @@ return true;
 
 Personas: switch (n) {
 1: ! ##TalkTo
-print "Salvo por los gentilhombres, vestidos con largos ropajes oscuros, y sus sirvientes, que llevaban camisolas sencillas, los demás tenían toda la apariencia de ser pastores de la zona; vestidos con pellicos negros y coronadas las cabezas con guirnaldas de ciprés y de amarga adelfa. Traía cada uno un grueso bastón de acebo en la mano.";
+print "Salvo por los gentilhombres, vestidos con largos ropajes oscuros, y sus sirvientes, que llevaban camisolas sencillas, los demás tenían toda la apariencia de ser ";
+Util.extended_print(Personas, "pastores", -1);
+print " de la zona; vestidos con pellicos negros y coronadas las cabezas con guirnaldas de ciprés y de amarga adelfa. Traía cada uno un grueso bastón de acebo en la mano.";
 new_line;
 return true;
 2: ! ##TalkTo
@@ -329,11 +335,15 @@ print ".";
 new_line;
 return true;
 4: ! ##TalkTo
-print "Insatisfeha su curiosidad acerca de aquella pastora Marcela y de la forma en que había causado la muerte del sabio y muy leído ", (name) Grisostomo, ", se dispuso a preguntar a otro de los pastores que tenía cerca. Pero en cuanto abrió la boca, antes siquiera de pronunciar sonido alguno, sintió un tremendo dolor en el pie. Al girarse para entender lo que ocurría se encontró con el mohín malhumorado del primer pastor con el que había cruzado palabra; éste se había llevado a la boca un dedo de la mano que tenía libre  —conminándolo a las claras a guardar silencio—, mientras que con la otra zarandeaba levemente su grueso báculo de acebo  —con la intención, si bien rudimentaria, hartamente exitosa, de subrayar la petición de silencio—.";
+print "Insatisfeha su curiosidad acerca de aquella pastora Marcela y de la forma en que había causado la muerte del sabio y muy leído ", (name) Grisostomo, ", se dispuso a preguntar a otro de los ";
+Util.extended_print(Personas, "pastores", -1);
+print " que tenía cerca. Pero en cuanto abrió la boca, antes siquiera de pronunciar sonido alguno, sintió un tremendo dolor en el pie. Al girarse para entender lo que ocurría se encontró con el mohín malhumorado del primer pastor con el que había cruzado palabra; éste se había llevado a la boca un dedo de la mano que tenía libre  —conminándolo a las claras a guardar silencio—, mientras que con la otra zarandeaba levemente su grueso báculo de acebo  —con la intención, si bien rudimentaria, hartamente exitosa, de subrayar la petición de silencio—.";
 new_line;
 return true;
 5: ! ##TalkTo
-print "Antes de intentar abrir de nuevo la boca pensó en su pie dolorido y en las robustas cachavas de aquellos pastores. Decidió que, por el momento, sería más prudente mantenerse en silencio.";
+print "Antes de intentar abrir de nuevo la boca pensó en su pie dolorido y en las robustas cachavas de aquellos ";
+Util.extended_print(Personas, "pastores", -1);
+print ". Decidió que, por el momento, sería más prudente mantenerse en silencio.";
 new_line;
 return true;
 6: ! ##TalkTo
@@ -353,7 +363,7 @@ return true;
 print "el enfrentamiento entre ", (name) Ambrosio, " y la pastora ", (name) Marcela, "";
 return true;
 4: ! ##Take
-print ", nuestro caballero se agachó presto y recogió con disimulo uno de aquellos papeles, pensando que nadie se percataría de su curiosidad. El pastor ";
+print ", nuestro caballero se agachó presto y recogió con disimulo uno de aquellos ", (name) Papeles, ", pensando que nadie se percataría de su curiosidad. El pastor ";
 return true;
 5: ! ##Take
 print "que tenía al lado, sin embargo, se percató, y le propinó un tremendo bastonazo en el pie.
@@ -406,7 +416,7 @@ return true;
 
 Quijote: switch (n) {
 1: ! ##Examine
-print "Frisaba la edad de nuestro protagonista con los cincuenta años. De complexión recia, seco de carnes, enjuo de rostro. La vetusta espada que llevaba encajada al cinto y la trotada armadura con la que parcialmente se revestía habían causado sin duda sorpresa entre los presentes; los cuales, sin embargo, y por el motivo que fuere, se habían guardado mucho de hacer comentario al respecto alguno.";
+print "Frisaba la edad de nuestro protagonista con los cincuenta años. De complexión recia, seco de carnes y enjuto de rostro. La vetusta espada que llevaba encajada al cinto y la trotada armadura con la que parcialmente se revestía habían causado sin duda sorpresa entre los presentes; los cuales, sin embargo, y por el motivo que fuere, se habían guardado mucho de hacer comentario al respecto alguno.";
 new_line;
 return true;
 2:
@@ -443,26 +453,86 @@ Una losa marcó desde entonces el lugar de la triste sepultura. En ella, en un �
 new_line;
 return true;
 10:
-print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de ", (emph) "El ingenioso hidalgo Don Quijote de la Mancha", ", escrita por ", (strong) "Miguel de Cervantes Saavedra", " y publicada por primera vez en 1605. Se ha procurado respetar al máximo la literalidad del original, sin que la pretensión de volverlo más inteligible o introducir un discurso contemporáneo constituyese una excusa para su manipulación. El texto íntegro del libro es del dominio público.
+print "Esta historia que se acaba de reproducir aquí es una adaptación de una aventura narrada en los episodios XII a XIV de la primera parte de ", (emph) "El ingenioso hidalgo Don Quijote de la Mancha", ", escrita por ", (strong) "Miguel de Cervantes Saavedra", " y publicada por primera vez en 1605. Se ha procurado respetar al máximo la literalidad del original, sin que la pretensión de volverlo más inteligible o aprovechar el material para introducir un discurso contemporáneo constituyese una excusa para su manipulación. El texto íntegro del libro es del dominio público.
 ^^
 El diseño, programación y los textos adicionales utilizados para dar forma a la presente adaptación han sido obra de ", (strong) "J. Francisco Martín Lisaso", ". Publicada por primera vez en noviembre de 2018 con licencia GNU GPL v3.
 ^^
 La melodía que puede escucharse se titula ", (emph) "Duuiensela", " y es obra del compositor renacentista español ", (strong) "Antonio de Cabezón", ". La pista de audio utilizada es una grabación al clavicordio interpretada por la tecladista estadounidense ", (strong) "Joan Benson", " y publicada con licencia CC-BY-SA-2.0.";
 new_line;
 return true;
-11: ! ##Think
-print "@>> ¡Oh Dulcinea del Toboso, extremo de toda hermosura, en quien tengo puesta toda mi prometida fe!";
+11: ! ##Listen
+print "El viento murmuraba entre la hierba y las hojas de los brezos.";
 new_line;
 return true;
 12: ! ##Think
-print "@>> ¡Oh única señora de mis más escondidos pensamientos! En ti vienen a hacerse verdaderos todos los quiméricos atributos de belleza que los poetas dan a sus damas: que tus cabellos son de oro, tu frente campos elíseos, tus cejas arcos del cielo, tus mejillas rosas, tus labios corales, perlas tus dientes, alabrastro tu cuello, mármol tu pecho, marfil tus manos, tu blancura, nieve.";
-13: ! ##Think
-print "@>> ¿Qué hará agora la tu merced?";
+print "@>> ... ¿qué hará agora la tu merced?";
 new_line;
 return true;
-14: ! ##Listen
-print "El viento murmuraba entre la hierba y las hojas de los brezos.";
+13: ! ##Think
+print "@>> ... ¡Oh Dulcinea del Toboso...! Extremo de toda hermosura... ¡en ti tengo puesta toda mi prometida fe!";
 new_line;
+return true;
+14: ! ##Think
+print "@>> ... ¡Oh única señora de mis más escondidos pensamientos...! En ti vienen a hacerse verdaderos todos los quiméricos atributos de belleza que los poetas dan a sus damas...";
+new_line;
+return true;
+15: ! ##Think
+print "@>> ...que tus cabellos son de oro, tu frente campos elíseos, tus cejas arcos del cielo, tus mejillas rosas, tus labios corales, perlas tus dientes, alabrastro tu cuello, mármol tu pecho, marfil tus manos, tu blancura, nieve...";
+new_line;
+return true;
+16: ! ##Mild / ##Strong
+print "Este narrador podría, por su parte, calificar a vuesamerced de ";
+return true;
+17: ! ##Mild / ##Strong
+print ". Mas se abstendrá de hacerlo, por considerarlo descortés. Si tenéis dificultades para continuar con la historia tal vez debierais probar a teclear ", (printx) "AYUDA", ".";
+return true;
+18: ! ##Mild / ##Strong
+print "truhán moderno y majadero antiguo";
+return true;
+19: ! ##Mild / ##Strong
+print "mentecato hediondo, de villana y grosera tela tejido";
+return true;
+20: ! ##Mild / ##Strong
+print "echacuervos";
+return true;
+21: ! ##Mild / ##Strong
+print "corazón de mantequillas";
+return true;
+22: ! ##Mild / ##Strong
+print "ánimo de ratón casero";
+return true;
+23: ! ##Mild / ##Strong
+print "alma endurecida";
+return true;
+24: ! ##Mild / ##Strong
+print "pan mal empleado";
+return true;
+25: ! ##Mild / ##Strong
+print "traidor descompuesto";
+return true;
+26:  ! ##Mild / ##Strong
+print "villano infacundo";
+return true;
+27: ! ##Mild / ##Strong
+print "deslenguado atrevido, más terco y duro que villano rogado";
+return true;
+28: ! ##Mild / ##Strong
+print "alma de almirez";
+return true;
+29: ! ##Mild / ##Strong
+print "cuesco de dátil";
+return true;
+30: ! ##Mild / ##Strong
+print "patán malmirado";
+return true;
+31: ! ##Mild / ##Strong
+print "bellaco socarrón";
+return true;
+32: ! ##Mild / ##Strong
+print "corazón de alcornoque, de entrañas guijeñas y apedernaladas";
+return true;
+33: ! ##Mild / ##Strong
+print "ladrón, desuellacaras y enemigo del género humano";
 return true;
 }
 

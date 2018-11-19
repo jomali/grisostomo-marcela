@@ -17,8 +17,8 @@
 !!	Idioma:			ES (Español)
 !!	Sistema:		Inform-INFSP 6
 !!	Plataforma:		Máquina-Z/Glulx
-!!	Versión:		1.0
-!!	Fecha:			2018/11/18
+!!	Versión:		1.1
+!!	Fecha:			2018/11/19
 !!
 !!------------------------------------------------------------------------------
 !!
@@ -47,7 +47,9 @@
 !!
 !!	HISTORIAL DE VERSIONES
 !!
-!!	1.0: 2018/11/16	Versión inicial.
+!!	1.1: 2018/11/19	Corrección de erratas, adición de sinónimos sobre objetos,
+!!					revisión de los comandos ##Think y ##Mild/##Strong.
+!!	1.0: 2018/11/18	Versión inicial.
 !!
 !!------------------------------------------------------------------------------
 !!
@@ -93,7 +95,8 @@ Constant Headline
 "Una ficción interactiva de J. Francisco Martín Lisaso, (c) 2018";
 
 Constant Checking 1;
-Release 0; Serial "181118";
+!Release 0; Serial "181118";
+Release 1; Serial "181119";
 
 !! Descomentar para compilar la versión Web/Móvil:
 Constant VERSION_WEB_MOBILE;
@@ -628,6 +631,7 @@ Include "vorple-screen-effects.h";
 !!------------------------------------------------------------------------------
 !!	<>	BeforeParsing()
 !!	<>	BeforeSettingTextStyle()
+!!	<>	GamePreRoutine()
 !!	<>	Initialise()
 !!	<>	InScope()
 !!	<>	MyVorplePrompt()
@@ -930,6 +934,7 @@ Include "vorple-screen-effects.h";
 !!	<>	##Dig
 !!	<>	##Help
 !!	<>	##LMode2
+!!	<>	##MetaInsult
 !!	<>	##NoSuchVerb --- Permite eliminar las acciones:
 !!		-	##Sorry
 !!	<>	##Strong
@@ -1069,6 +1074,31 @@ Extend only 'normal' replace
 ;
 
 !!------------------------------------------------------------------------------
+!! ##MetaInsult
+!!------------------------------------------------------------------------------
+
+Verb meta 'caraculo' 'capullo' 'cretino' 'culopo' 'culopollo' 'fantoche'
+	'gilipollas' 'hideputa' 'hijoputa' 'lerdo' 'mentecato' 'palurdo' 'patan'
+	'zopenco'
+    *								-> MetaInsult
+	* topic							-> MetaInsult
+;
+
+Extend 'mierda' replace
+    *								-> MetaInsult
+	* topic							-> MetaInsult
+;
+
+Extend 'tonto' replace
+	*								-> MetaInsult
+	* topic							-> MetaInsult
+;
+
+[ MetaInsultSub;
+	return Quijote.insulto();
+];
+
+!!------------------------------------------------------------------------------
 !! ##NoSuchVerb
 !!------------------------------------------------------------------------------
 !! Permite eliminar acciones definidas automáticamente por la librería Inform.
@@ -1089,15 +1119,6 @@ Extend	'perdona' replace
 ;
 
 [ NoSuchVerbSub; return ParserError(VERB_PE); ];
-
-
-!!------------------------------------------------------------------------------
-!! ##TalkOn / ##TalkTo
-!!------------------------------------------------------------------------------
-
-Verb	'caraculo' 'capullo' 'cretino' 'culopo' 'culopollo' 'fantoche'
-	'gilipollas' 'hideputa' 'hijoputa''lerdo' 'mentecato' 'palurdo' 'patan'
-	'zopenco' = 'tonto';
 
 !!------------------------------------------------------------------------------
 !! ##TalkOn / ##TalkTo

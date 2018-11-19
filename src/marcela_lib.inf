@@ -766,13 +766,12 @@ CompassDirection d_obj "abajo" compass
 	#Endif; ! VERSION_DESKTOP
 
 	new_line;
-	print "Relato original: ", (strong) "Hans Christian Andersen", ".^";
-	print "Diseño y programaciçon: ",
+	print "Relato original: ", (strong) "Miguel de Cervantes", ".^";
+	print "Diseño y programación: ",
 		(strong) "J. Francisco Martín Lisaso",".^";
-	print "Composición musical: ", (strong) "Franz Xaver Gruber", ".^";
-	print "Grabación: ", (strong) "Kevin MacLeod", ".^";
-	print "Ilustración de portada: ", (strong) "Anne Anderson", ".^";
-	print "Icono original: ", (strong) "Roundicons.com", ".^";
+	print "Composición musical: ", (strong) "Antonio de Cabezón", ".^";
+	print "Grabación: ", (strong) "Joan Benson", ".^";
+	print "Ilustración de portada: ", (strong) "Gustave Doré", ".^";
 
 	new_line;
 	print "Este programa es software libre: usted puede redistribuirlo y/o
@@ -788,7 +787,7 @@ CompassDirection d_obj "abajo" compass
 	Debería haber recibido una copia de la Licencia Pública General GNU junto a
 	este programa. En caso contrario, consulte <http://www.gnu.org/licenses/>.
 	^^
-	Copyright (c) 2010-2018, J. Francisco Martín";
+	Copyright (c) 2018, J. Francisco Martín";
 	new_line;
 	return true;
 ];

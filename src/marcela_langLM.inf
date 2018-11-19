@@ -159,14 +159,6 @@ Object	LibraryMessages
 		siempre da descripciones cortas de los lugares (incluso si nunca habías
 		estado antes).";
 
-	Mild, Strong: !! XXX - Mensaje personalizado del narrador
-		print_ret (parser) "Éste narrador podría, por su parte, calificar a
-		vuestra merced de truhán moderno y majadero antiguo, de villana y
-		grosera tela tejido, echacuervos, corazón de mantequillas, ánimo de
-		ratón casero, alma endurecida o pan mal empleado. Mas se abstendrá de
-		hacerlo, por considerarlo descortés. Si tenéis dificultades para
-		continuar con la historia tal vez debierais probar a teclear AYUDA.";
-
 	Miscellany:
 		!! Esta es una falsa acción que se usa simplemente para agrupar aquí
 		!! todos los mensajes de error del parser, los mensajes ante algunos

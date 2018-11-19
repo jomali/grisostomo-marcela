@@ -68,6 +68,7 @@ Room	Limbo "En algún lugar"
 		clarification 0,
  has	male;
 
+Array insultFlags -> 4; ! hasta (N-1) * 8 flags
 NPC		-> Quijote "Quijote"
  with	name_m	'caballero' 'personaje' 'protagonista' 'quijote',
 		gender	G_MASCULINO,
@@ -81,14 +82,20 @@ NPC		-> Quijote "Quijote"
 			Think:
 				if (noun == nothing) {
 					switch (self.state) {
-							0:
-								self.state++;
-								return O__M(self, 11);
-							1:
-								self.state++;
-								return O__M(self, 12);
-							default:
-								return O__M(self, 13);
+						0:
+							self.state++;
+							return O__M(self, 12);
+						1:
+							self.state++;
+							return O__M(self, 13);
+						2:
+							self.state++;
+							return O__M(self, 14);
+						3:
+							self.state++;
+							return O__M(self, 15);
+						default:
+							return O__M(self, 12);
 					}
 				}
 		],
@@ -107,6 +114,35 @@ NPC		-> Quijote "Quijote"
 			Util.fade_out(MUS_SOUNDTRACK, 0, 500, true);
 			Util.fade_out(SFX_WIND, 0, 500, true);
 			@restart;
+		],
+		insulto [
+			previous_style;
+			previous_style = Util.set_text_style(TEXT_STYLE_PARSER);
+			print (string) TEXT_STYLE_PARSER_PREFIX;
+			O__M(self, 16);
+			switch (Shuffle(16, insultFlags)) {
+				1:	O__M(self, 18);
+				2:	O__M(self, 19);
+				3:	O__M(self, 20);
+				4:	O__M(self, 21);
+				5:	O__M(self, 22);
+				6:	O__M(self, 23);
+				7:	O__M(self, 24);
+				8:	O__M(self, 25);
+				9:	O__M(self, 26);
+				10:	O__M(self, 27);
+				11:	O__M(self, 28);
+				12:	O__M(self, 29);
+				13:	O__M(self, 30);
+				14:	O__M(self, 31);
+				15:	O__M(self, 32);
+				16:	O__M(self, 33);
+			}
+			O__M(self, 17);
+			print (string) TEXT_STYLE_PARSER_SUFIX;
+			Util.set_text_style(previous_style);
+			new_line;
+			return true;
 		],
 		epilogo false,
 		golpe_del_pastor false,
@@ -149,8 +185,12 @@ NPC		-> Marcela "Marcela"
 
 Array descriptionFlags -> 2; ! hasta 8 flags
 Room	Campo "Al pie de una peña"
- with	name_f 'campina' 'campo' 'dehesea' 'pradera' 'praderia' 'sierra',
-		name_m 'prado',
+ with	name_f 'campina' 'dehesea' 'montana' 'pena' 'pradera' 'praderia'
+			'sierra',
+		name_fp 'montanas',
+		name_m 'alcornoque' 'arbol' 'arbusto' 'brezal' 'brezo' 'campo'
+			'madrono' 'olivo' 'prado',
+		name_mp 'alcornoques' 'arboles' 'arbustos' 'brezos' 'madronos' 'olivos',
 		gender G_MASCULINO,
 		description [;
 			!! Primera descripción:
@@ -170,13 +210,13 @@ Room	Campo "Al pie de una peña"
 			}
 			!! Antes de la aparición de Marcela:
 			if (self.state <= 8) {
-					O__M(self, 2);
-					if (Grisostomo.nombre_conocido) O__M(self, 4);
-					else O__M(self, 3);
-					O__M(self, 5);
-					new_line;
-					O__M(self, 6);
-					return true;
+				O__M(self, 2);
+				if (Grisostomo.nombre_conocido) O__M(self, 4);
+				else O__M(self, 3);
+				O__M(self, 5);
+				new_line;
+				O__M(self, 6);
+				return true;
 			}
 			!! Aparición de Marcela:
 			if (self.state == 9) {
@@ -211,9 +251,9 @@ Room	Campo "Al pie de una peña"
 		],
 		before [;
 			Listen:
-				return O__M(Quijote, 14);
+				return O__M(Quijote, 11);
 		],
-		daemon [ previous_style;
+		daemon [;
 			switch (self.state) {
 				!! Intervención de Ambrosio:
 				3:
@@ -225,6 +265,7 @@ Room	Campo "Al pie de una peña"
 					O__M(Ambrosio, 7);
 				8:
 					move Marcela to self;
+					give Marcela general;
 					new_line;
 					O__M(Marcela, 1);
 				9:
@@ -284,7 +325,7 @@ NPC		-> Ambrosio "Ambrosio"
 					<<TalkTo self>>;
 				}
 			TalkTo:
-				if (Marcela in Campo) <<TalkTo Personas>>;
+				if (Marcela has general) <<TalkTo Personas>>;
 				else return O__M(self, 10);
 		],
  has	concealed male proper;
@@ -333,8 +374,7 @@ NPC		-> Grisostomo "Grisóstomo"
  has	concealed male proper;
 
 Object	-> HelpManager "(Help Manager)"
- with	react_before [
-			previous_style;
+ with	react_before [;
 			DefaultAction:
 				if (self.hint_objects_active) {
 					self.hint_objects_active = false;
@@ -349,6 +389,8 @@ Object	-> HelpManager "(Help Manager)"
 					O__M(self, 4);
 					new_line;
 				}
+			Use:
+				return O__M(self, 9);
 		],
 		react_after [;
 			if (self.initial_hint) {
@@ -435,7 +477,7 @@ NPC		-> Personas "personas"
 					<<TalkTo self>>;
 				}
 			TalkTo:
-				if (Marcela in Campo) return O__M(self, 6);
+				if (Marcela has general) return O__M(self, 6);
 				switch (self.state) {
 					0:
 						self.state++;
